@@ -38,7 +38,7 @@ trait WithSlideTitle
     {
         $title = TextBox::make($this, $this->slideTitle)
             ->paragraphStyle(config('ppt.defaults.masters.slideTitleParagraphStyle', 'slideTitle'))
-            ->horizontalAlignment(Alignment::HORIZONTAL_LEFT)
+            ->alignLeft()
             ->position($this->horizontalPadding, $this->verticalPadding)
             ->width($this->presentation->width - (2 * $this->horizontalPadding))
             ->lines(1)

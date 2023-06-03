@@ -17,6 +17,13 @@ return [
         ],
         'masters' => [
             'slideTitleParagraphStyle' => 'slideTitle',
+            'slideSubtitleParagraphStyle' => 'slideSubtitle',
+            'bulletPointParagraphStyle' => 'bulletPoint',
+            'nUpGridTitleParagraphStyle' => 'nUpGridTitle',
+            'nUpGridBodyParagraphStyle' => 'nUpGridBody',
+            'bodyParagraphStyle' => 'body',
+            'sectionTitleParagraphStyle' => 'sectionTitle',
+            'sectionSubtitleParagraphStyle' => 'sectionSubtitle',
         ],
     ],
 
