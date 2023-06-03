@@ -13,13 +13,14 @@ class Cell
         WithUrl;
 
     public int $colspan = 0;
+
     public int $rowspan = 0;
+
     public int $width = 0;
 
     public function __construct(
         public string $text = ''
-    )
-    {
+    ) {
     }
 
     public function spansColumns(int $colspan): self

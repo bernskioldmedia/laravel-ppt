@@ -16,8 +16,7 @@ class Row
 
     public function __construct(
         public array $cells = [],
-    )
-    {
+    ) {
     }
 
     public function height(int $height): self

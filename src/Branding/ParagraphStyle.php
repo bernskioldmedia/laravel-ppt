@@ -32,7 +32,7 @@ class ParagraphStyle implements Arrayable
                 'underlined' => $this->underlined,
                 'lineHeight' => $this->lineHeight,
                 'uppercase' => $this->uppercase,
-            ]
+            ],
         ];
     }
 
@@ -70,5 +70,4 @@ class ParagraphStyle implements Arrayable
             $component->uppercase($this->uppercase);
         }
     }
-
 }

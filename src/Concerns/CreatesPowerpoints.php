@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Concerns;
 
 trait CreatesPowerpoints
 {
-
     public function powerpointCreatorName(): string
     {
         return $this->name;
@@ -14,5 +13,4 @@ trait CreatesPowerpoints
     {
         return '';
     }
-
 }

@@ -7,13 +7,13 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Contracts\CustomizesPowerpointBranding;
+use function config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use function method_exists;
 use PhpOffice\PhpPresentation\DocumentLayout;
 use PhpOffice\PhpPresentation\IOFactory;
 use PhpOffice\PhpPresentation\PhpPresentation;
-use function config;
-use function method_exists;
 
 class Presentation
 {
@@ -22,16 +22,17 @@ class Presentation
         WithSize;
 
     public PhpPresentation $document;
+
     protected ?Model $user = null;
+
     public ?Branding $branding = null;
 
     public function __construct(
         protected string $title,
-        ?int             $width = null,
-        ?int             $height = null,
-        ?string          $branding = null
-    )
-    {
+        ?int $width = null,
+        ?int $height = null,
+        ?string $branding = null
+    ) {
         $this->user = auth()->user();
 
         // Set default sizes.
@@ -73,7 +74,7 @@ class Presentation
 
     public function save(string $filename, ?string $disk = null): string
     {
-        if (!$disk) {
+        if (! $disk) {
             $disk = config('ppt.output.disk', 'local');
         }
 
@@ -139,5 +140,4 @@ class Presentation
         }
 
     }
-
 }

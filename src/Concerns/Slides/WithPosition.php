@@ -5,6 +5,7 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 trait WithPosition
 {
     public float $x = 0;
+
     public float $y = 0;
 
     public function x(float $x): self
@@ -28,5 +29,4 @@ trait WithPosition
 
         return $this;
     }
-
 }

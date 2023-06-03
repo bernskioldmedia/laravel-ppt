@@ -12,10 +12,10 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use Closure;
+use function file_exists;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
-use function file_exists;
 use function tap;
 
 abstract class BaseSlide
@@ -133,7 +133,7 @@ abstract class BaseSlide
             return;
         }
 
-        if (!$this->logo) {
+        if (! $this->logo) {
             return;
         }
 
@@ -152,7 +152,7 @@ abstract class BaseSlide
 
     protected function maybeGetAssetFile(string $name): ?string
     {
-        $fileWithoutExt = $this->presentation->branding->assetFolder() . '/' . $name;
+        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
 
         if (file_exists("$fileWithoutExt.jpg")) {
             return "$fileWithoutExt.jpg";
@@ -171,7 +171,7 @@ abstract class BaseSlide
         $imageDimensions = $this->{"{$key}ImageDimensions"};
         $position = $this->{"{$key}ImagePosition"};
 
-        if (!$imagePath) {
+        if (! $imagePath) {
             return;
         }
 
@@ -192,5 +192,4 @@ abstract class BaseSlide
             ->setOffsetY($y);
 
     }
-
 }

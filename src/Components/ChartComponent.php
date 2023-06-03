@@ -18,8 +18,7 @@ abstract class ChartComponent extends Component
 
     public function __construct(
         protected array $data
-    )
-    {
+    ) {
 
         $this->initializeChart();
     }

@@ -5,6 +5,7 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 trait WithPadding
 {
     public ?int $horizontalPadding = null;
+
     public ?int $verticalPadding = null;
 
     public function horizontalPadding(int $padding): self
@@ -27,5 +28,4 @@ trait WithPadding
             ->horizontalPadding($x)
             ->verticalPadding($y);
     }
-
 }

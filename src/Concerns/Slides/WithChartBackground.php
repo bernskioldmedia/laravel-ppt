@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-
 trait WithChartBackground
 {
     public ?string $chartBackgroundColor = null;
@@ -13,5 +12,4 @@ trait WithChartBackground
 
         return $this;
     }
-
 }

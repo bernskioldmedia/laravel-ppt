@@ -74,13 +74,12 @@ abstract class Component
 
     protected function maybeDefaultDimensions(): void
     {
-        if (!$this->width) {
+        if (! $this->width) {
             $this->width = $this->defaultWidth();
         }
 
-        if (!$this->height) {
+        if (! $this->height) {
             $this->height = $this->defaultHeight();
         }
     }
-
 }

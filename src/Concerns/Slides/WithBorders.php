@@ -8,23 +8,29 @@ use PhpOffice\PhpPresentation\Style\Fill;
 
 trait WithBorders
 {
-
     public ?string $topBorderColor = Color::COLOR_BLACK;
+
     public string $topBorderType = Fill::FILL_SOLID;
+
     public float $topBorderSize = 0;
 
     public ?string $rightBorderColor = Color::COLOR_BLACK;
+
     public string $rightBorderType = Fill::FILL_SOLID;
+
     public float $rightBorderSize = 0;
 
     public ?string $bottomBorderColor = Color::COLOR_BLACK;
+
     public string $bottomBorderType = Fill::FILL_SOLID;
+
     public float $bottomBorderSize = 0;
 
     public ?string $leftBorderColor = Color::COLOR_BLACK;
-    public string $leftBorderType = Fill::FILL_SOLID;
-    public float $leftBorderSize = 0;
 
+    public string $leftBorderType = Fill::FILL_SOLID;
+
+    public float $leftBorderSize = 0;
 
     public function borderTop(string $color, float $size = 1.0, string $type = Fill::FILL_SOLID): static
     {
@@ -84,5 +90,4 @@ trait WithBorders
 
         return $borders;
     }
-
 }

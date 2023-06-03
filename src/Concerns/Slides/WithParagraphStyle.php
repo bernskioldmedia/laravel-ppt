@@ -2,8 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-use PhpOffice\PhpPresentation\AbstractShape;
-
 trait WithParagraphStyle
 {
     public ?string $paragraphStyle = null;
@@ -14,5 +12,4 @@ trait WithParagraphStyle
 
         return $this;
     }
-
 }

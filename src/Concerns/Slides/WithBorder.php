@@ -8,9 +8,10 @@ use PhpOffice\PhpPresentation\Style\Outline;
 
 trait WithBorder
 {
-
     public ?string $borderColor = null;
+
     public string $borderType = Fill::FILL_SOLID;
+
     public float $borderSize = 1.0;
 
     public function border(string $color, float $size = 1.0, string $type = Fill::FILL_SOLID): static
@@ -51,5 +52,4 @@ trait WithBorder
                     ->setEndColor(new Color($this->borderColor))
             );
     }
-
 }

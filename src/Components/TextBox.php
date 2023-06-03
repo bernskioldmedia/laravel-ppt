@@ -29,8 +29,7 @@ class TextBox extends Component
 
     public function __construct(
         protected ?string $text = '',
-    )
-    {
+    ) {
     }
 
     protected function initialize(): static
@@ -48,7 +47,7 @@ class TextBox extends Component
         }
 
         // Apply the paragraph style if it exists.
-        if (!empty($this->paragraphStyle)) {
+        if (! empty($this->paragraphStyle)) {
             $this->slide
                 ->presentation
                 ->branding
@@ -63,7 +62,7 @@ class TextBox extends Component
             ->setVertical($this->verticalAlignment);
 
         // Calculate a default height based on how many lines we have asked for.
-        if (!$this->height) {
+        if (! $this->height) {
             $this->height = $this->size * $this->lines;
         }
 
@@ -77,7 +76,7 @@ class TextBox extends Component
             $this->shape->setFill($this->getBackgroundColorFill());
         }
 
-        if (!$this->color) {
+        if (! $this->color) {
             $this->color = $this->slide->textColor;
         }
 
@@ -110,5 +109,4 @@ class TextBox extends Component
 
         return $this;
     }
-
 }

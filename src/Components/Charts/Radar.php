@@ -8,7 +8,6 @@ use PhpOffice\PhpPresentation\Style\Color;
 
 class Radar extends ChartComponent
 {
-
     protected function initializeChart(): void
     {
         $this->chart = new \PhpOffice\PhpPresentation\Shape\Chart\Type\Radar();

@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-
 trait WithTextColor
 {
     public ?string $textColor = null;
@@ -13,5 +12,4 @@ trait WithTextColor
 
         return $this;
     }
-
 }

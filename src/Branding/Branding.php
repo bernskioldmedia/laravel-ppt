@@ -2,12 +2,12 @@
 
 namespace BernskioldMedia\LaravelPpt\Branding;
 
+use function array_filter;
+use function array_merge;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use Illuminate\Support\Str;
 use PhpOffice\PhpPresentation\Style\Color;
 use ReflectionClass;
-use function array_filter;
-use function array_merge;
 use function resource_path;
 
 class Branding
@@ -15,8 +15,11 @@ class Branding
     use Makeable;
 
     public const LOGO_POSITION_TOP_LEFT = 'top-left';
+
     public const LOGO_POSITION_TOP_RIGHT = 'top-right';
+
     public const LOGO_POSITION_BOTTOM_LEFT = 'bottom-left';
+
     public const LOGO_POSITION_BOTTOM_RIGHT = 'bottom-right';
 
     protected string $creatorCompanyName;
@@ -103,26 +106,26 @@ class Branding
         return [
             ParagraphStyle::make('coverTitle')
                 ->size(72)
-                ->bold()
+                ->bold(),
         ];
     }
 
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
-        $style = array_filter($this->paragraphStyles(), fn($style) => $style->key() === $key)[0] ?? null;
+        $style = array_filter($this->paragraphStyles(), fn ($style) => $style->key() === $key)[0] ?? null;
 
         if ($style) {
             return $style;
         }
 
-        return array_filter($this->defaultParagraphStyles(), fn($style) => $style->key() === $key)[0] ?? null;
+        return array_filter($this->defaultParagraphStyles(), fn ($style) => $style->key() === $key)[0] ?? null;
     }
 
     public function paragraphStyleValue(string $styleKey, string $property): mixed
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (!$style) {
+        if (! $style) {
             return null;
         }
 
@@ -147,5 +150,4 @@ class Branding
             $this->chartColors
         );
     }
-
 }
