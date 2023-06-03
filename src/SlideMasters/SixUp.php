@@ -13,8 +13,9 @@ class SixUp extends BaseSlide
         WithSlideTitle;
 
     public function __construct(
-        protected string $title = '',
+        string $title = '',
     ) {
+        $this->slideTitle = $title;
     }
 
     protected function render(): void

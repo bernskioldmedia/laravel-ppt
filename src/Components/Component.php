@@ -36,8 +36,6 @@ abstract class Component
 
     public function centered(): static
     {
-        $this->maybeDefaultDimensions();
-
         $this->centerHorizontally()
             ->centerVertically();
 
@@ -46,18 +44,18 @@ abstract class Component
 
     public function centerHorizontally(): static
     {
-        $this->maybeDefaultDimensions();
+        $width = $this->width ?: $this->defaultWidth();
 
-        $this->x(($this->slide->presentation->width - $this->width) / 2);
+        $this->x(($this->slide->presentation->width - $width) / 2);
 
         return $this;
     }
 
     public function centerVertically(): static
     {
-        $this->maybeDefaultDimensions();
+        $height = $this->height ?: $this->defaultHeight();
 
-        $this->y(($this->slide->presentation->height / 2) - ($this->height / 2));
+        $this->y(($this->slide->presentation->height / 2) - ($height / 2));
 
         return $this;
     }
@@ -74,11 +72,11 @@ abstract class Component
 
     protected function maybeDefaultDimensions(): void
     {
-        if (! $this->width) {
+        if (!$this->width) {
             $this->width = $this->defaultWidth();
         }
 
-        if (! $this->height) {
+        if (!$this->height) {
             $this->height = $this->defaultHeight();
         }
     }

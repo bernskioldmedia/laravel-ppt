@@ -15,11 +15,12 @@ class TwoUp extends BaseSlide
     public function __construct(
         string $title = '',
     ) {
+        $this->slideTitle = $title;
     }
 
     protected function render(): void
     {
-        if (! empty($this->title)) {
+        if (! empty($this->slideTitle)) {
             $this->renderTitle();
         }
 
