@@ -104,28 +104,46 @@ class Branding
     protected function defaultParagraphStyles(): array
     {
         return [
-            ParagraphStyle::make('coverTitle')
-                ->size(72)
+            ParagraphStyle::make('slideTitle')
+                ->size(24)
+                ->bold(),
+            ParagraphStyle::make('slideSubtitle')
+                ->size(18)
+                ->bold(),
+            ParagraphStyle::make('bulletPoint')
+                ->size(18),
+            ParagraphStyle::make('nUpGridTitle')
+                ->size(16)
+                ->bold(),
+            ParagraphStyle::make('nUpGridBody')
+                ->size(12),
+            ParagraphStyle::make('body')
+                ->size(12),
+            ParagraphStyle::make('sectionTitle')
+                ->size(36)
+                ->bold(),
+            ParagraphStyle::make('sectionSubtitle')
+                ->size(18)
                 ->bold(),
         ];
     }
 
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
-        $style = array_filter($this->paragraphStyles(), fn (ParagraphStyle $style) => $style->key === $key)[0] ?? null;
+        $style = array_filter($this->paragraphStyles(), fn(ParagraphStyle $style) => $style->key === $key)[0] ?? null;
 
         if ($style) {
             return $style;
         }
 
-        return array_filter($this->defaultParagraphStyles(), fn (ParagraphStyle $style) => $style->key === $key)[0] ?? null;
+        return array_filter($this->defaultParagraphStyles(), fn(ParagraphStyle $style) => $style->key === $key)[0] ?? null;
     }
 
     public function paragraphStyleValue(string $styleKey, string $property): mixed
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (! $style) {
+        if (!$style) {
             return null;
         }
 
