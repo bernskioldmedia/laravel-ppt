@@ -90,7 +90,7 @@ class Presentation
     }
 
     /**
-     * @param array<BaseSlide> $slides
+     * @param  array<BaseSlide>  $slides
      * @return $this
      */
     public function slides(array $slides = []): static
