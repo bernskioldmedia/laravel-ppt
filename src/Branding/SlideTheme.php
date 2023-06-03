@@ -50,5 +50,4 @@ class SlideTheme
             $slide->logo($this->logo, $this->logoDimensions);
         }
     }
-
 }

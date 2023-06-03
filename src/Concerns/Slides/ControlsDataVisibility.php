@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait ControlsDataVisibility
 {
-
     protected bool $showDataLabels = false;
 
     protected bool $showDataValues = true;
@@ -18,7 +17,7 @@ trait ControlsDataVisibility
 
     public function withoutDataLabels(bool $hide = true): static
     {
-        $this->withDataLabels(!$hide);
+        $this->withDataLabels(! $hide);
 
         return $this;
     }
@@ -32,7 +31,7 @@ trait ControlsDataVisibility
 
     public function withoutDataValues(bool $hide = true): static
     {
-        $this->withDataValues(!$hide);
+        $this->withDataValues(! $hide);
 
         return $this;
     }

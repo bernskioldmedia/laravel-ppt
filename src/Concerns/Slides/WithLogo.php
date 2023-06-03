@@ -2,10 +2,10 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-
 trait WithLogo
 {
     public ?string $logo = null;
+
     public array $logoDimensions = [];
 
     public function logo(string $fileName, array $dimensions = []): static
@@ -15,5 +15,4 @@ trait WithLogo
 
         return $this;
     }
-
 }

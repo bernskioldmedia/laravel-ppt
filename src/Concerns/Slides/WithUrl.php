@@ -6,9 +6,10 @@ use PhpOffice\PhpPresentation\Shape\Hyperlink;
 
 trait WithUrl
 {
-
     protected ?string $url = null;
+
     protected ?int $slideNumberAnchor = null;
+
     protected ?bool $useTextColorForLink = null;
 
     public function url(string $url): static
@@ -34,15 +35,14 @@ trait WithUrl
 
     public function getLinkAsHyperlink(): ?Hyperlink
     {
-        if($this->url) {
+        if ($this->url) {
             return (new Hyperlink($this->url))->setIsTextColorUsed($this->useTextColorForLink);
         }
 
-        if($this->slideNumberAnchor) {
+        if ($this->slideNumberAnchor) {
             return (new Hyperlink())->setSlideNumber($this->slideNumberAnchor)->setIsTextColorUsed($this->useTextColorForLink);
         }
 
         return null;
     }
-
 }

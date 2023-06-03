@@ -2,9 +2,9 @@
 
 namespace BernskioldMedia\LaravelPpt;
 
+use BernskioldMedia\LaravelPpt\Commands\CreateNewSlideDeckCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BernskioldMedia\LaravelPpt\Commands\CreateNewSlideDeckCommand;
 
 class LaravelPptServiceProvider extends PackageServiceProvider
 {

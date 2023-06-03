@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-
 trait WithEdgeImages
 {
     protected ?string $bottomLeftImagePath = null;
@@ -92,5 +91,4 @@ trait WithEdgeImages
 
         return $this;
     }
-
 }

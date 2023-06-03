@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithXAxis
 {
-
     public bool $showXAxis = true;
 
     public string $xAxisTitle = '';
@@ -25,10 +24,8 @@ trait WithXAxis
 
     public function withoutXAxis(bool $hidden = true): static
     {
-        $this->withXAxis(!$hidden);
+        $this->withXAxis(! $hidden);
 
         return $this;
     }
-
-
 }

@@ -2,20 +2,15 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-use PhpOffice\PhpPresentation\Style\Alignment;
-
 trait WithYAxis
 {
-
     public string $yAxisTitle = '';
 
     public bool $showYAxis = true;
 
-
     public ?int $yAxisMax = 100;
 
     public ?int $yAxisMin = 0;
-
 
     public function yAxisTitle(string $title): static
     {
@@ -23,7 +18,6 @@ trait WithYAxis
 
         return $this;
     }
-
 
     public function withYAxis(bool $shown = true): static
     {
@@ -34,11 +28,10 @@ trait WithYAxis
 
     public function withoutYAxis(bool $hidden = true): static
     {
-        $this->withYAxis(!$hidden);
+        $this->withYAxis(! $hidden);
 
         return $this;
     }
-
 
     public function yAxisAutoMax(): static
     {
@@ -60,5 +53,4 @@ trait WithYAxis
 
         return $this;
     }
-
 }

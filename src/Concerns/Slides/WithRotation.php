@@ -12,5 +12,4 @@ trait WithRotation
 
         return $this;
     }
-
 }

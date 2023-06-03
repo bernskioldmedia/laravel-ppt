@@ -2,9 +2,9 @@
 
 namespace BernskioldMedia\LaravelPpt\Commands;
 
+use function config;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
-use function config;
 
 class CreateNewSlideCommand extends Command
 {
@@ -14,7 +14,7 @@ class CreateNewSlideCommand extends Command
 
     public function handle(): int
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/Slide.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/Slide.stub');
 
         $replacements = [
             'deck' => str($this->argument('deck'))->camel(),
@@ -22,13 +22,13 @@ class CreateNewSlideCommand extends Command
         ];
 
         $stub = str_replace(
-            array_map(fn($key) => '{{' . $key . '}}', array_keys($replacements)),
+            array_map(fn ($key) => '{{'.$key.'}}', array_keys($replacements)),
             array_values($replacements),
             $stub
         );
 
-        $directory = config('ppt.paths.slideDecks') . '/' . $replacements['deck'] . '/' . 'Slides';
-        $path = $directory . '/' . $replacements['name'] . '.php';
+        $directory = config('ppt.paths.slideDecks').'/'.$replacements['deck'].'/'.'Slides';
+        $path = $directory.'/'.$replacements['name'].'.php';
 
         // Create the directory if it doesn't exist.
         Storage::makeDirectory($directory);
@@ -36,7 +36,7 @@ class CreateNewSlideCommand extends Command
         // Write the file.
         Storage::put($path, $stub);
 
-        $this->comment("The slide deck was created.");
+        $this->comment('The slide deck was created.');
 
         return self::SUCCESS;
     }

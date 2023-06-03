@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-
 trait WithBackgroundImage
 {
     protected ?string $backgroundImage = null;
@@ -15,13 +14,12 @@ trait WithBackgroundImage
             return $this;
         }
 
-        if (!$isFull) {
-            $path = config('ppt.paths.base') . '/' . $path;
+        if (! $isFull) {
+            $path = config('ppt.paths.base').'/'.$path;
         }
 
         $this->backgroundImage = $path;
 
         return $this;
     }
-
 }

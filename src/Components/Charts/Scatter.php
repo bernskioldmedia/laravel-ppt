@@ -9,7 +9,6 @@ use PhpOffice\PhpPresentation\Style\Fill;
 
 class Scatter extends ChartComponent
 {
-
     protected function initializeChart(): void
     {
         $this->chart = new \PhpOffice\PhpPresentation\Shape\Chart\Type\Scatter();

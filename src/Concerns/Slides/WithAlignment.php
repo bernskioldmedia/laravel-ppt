@@ -6,12 +6,16 @@ use PhpOffice\PhpPresentation\Style\Alignment;
 
 trait WithAlignment
 {
-
     public string $horizontalAlignment = Alignment::HORIZONTAL_CENTER;
+
     public string $verticalAlignment = Alignment::VERTICAL_CENTER;
+
     public float $marginTop = 0;
+
     public float $marginRight = 0;
+
     public float $marginBottom = 0;
+
     public float $marginLeft = 0;
 
     public function alignLeft(): static
@@ -95,6 +99,4 @@ trait WithAlignment
 
         return $this;
     }
-
-
 }

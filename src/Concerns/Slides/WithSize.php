@@ -4,8 +4,8 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithSize
 {
-
     public ?int $width = null;
+
     public ?int $height = null;
 
     public function width(int $width): self
@@ -21,5 +21,4 @@ trait WithSize
 
         return $this;
     }
-
 }

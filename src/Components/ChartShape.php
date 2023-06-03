@@ -4,8 +4,8 @@ namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
-use BernskioldMedia\LaravelPpt\Foundations\Component;
 use BernskioldMedia\LaravelPpt\Foundations\ChartComponent;
+use BernskioldMedia\LaravelPpt\Foundations\Component;
 use PhpOffice\PhpPresentation\Shape\Chart\Gridlines;
 use PhpOffice\PhpPresentation\Shape\Chart\Legend;
 use PhpOffice\PhpPresentation\Shape\Chart\Type\Line;
@@ -22,10 +22,9 @@ class ChartShape extends Component
 
     public function __construct(
         protected ChartComponent $graphComponent,
-        protected ?string        $axisColor = Color::COLOR_BLACK,
-        protected ?string        $title = '',
-    )
-    {
+        protected ?string $axisColor = Color::COLOR_BLACK,
+        protected ?string $title = '',
+    ) {
         $this->backgroundColor = Color::COLOR_WHITE;
     }
 
@@ -83,7 +82,7 @@ class ChartShape extends Component
 
         // Hide the chart title.
         $this->shape->getTitle()->setText($this->title);
-        $this->shape->getTitle()->setVisible(!empty($this->title));
+        $this->shape->getTitle()->setVisible(! empty($this->title));
         $this->shape->getTitle()->setWidth(100);
         $this->shape->getTitle()->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
 
@@ -122,7 +121,7 @@ class ChartShape extends Component
         $this->shape->getPlotArea()->getAxisY()->setIsVisible($this->graphComponent->showYAxis);
 
         // Max-min
-        if (!$this->graphComponent->chart instanceof Line) {
+        if (! $this->graphComponent->chart instanceof Line) {
             if ($this->graphComponent->yAxisMax) {
                 $this->shape->getPlotArea()->getAxisY()->setMaxBounds($this->graphComponent->yAxisMax);
             }

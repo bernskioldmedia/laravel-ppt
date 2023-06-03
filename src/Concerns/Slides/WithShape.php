@@ -14,5 +14,4 @@ trait WithShape
 
         return $this;
     }
-
 }

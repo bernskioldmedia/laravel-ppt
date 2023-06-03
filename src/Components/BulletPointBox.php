@@ -6,15 +6,15 @@ use BernskioldMedia\LaravelPpt\Foundations\Component;
 
 class BulletPointBox extends Component
 {
-
     protected string $paragraphStyle = 'bulletPoint';
+
     protected string $bulletCharacter = '•';
+
     protected int $spacingAfter = 20;
 
     public function __construct(
         protected array $bulletPoints = [],
-    )
-    {
+    ) {
     }
 
     public function bullet(string $text): self
@@ -50,7 +50,7 @@ class BulletPointBox extends Component
         $box = null;
 
         foreach ($this->bulletPoints as $bulletPoint) {
-            if (!$box) {
+            if (! $box) {
                 $box = TextBox::make($this->slide, $bulletPoint)
                     ->paragraphStyle($this->paragraphStyle)
                     ->height($this->height)
@@ -69,5 +69,4 @@ class BulletPointBox extends Component
 
         return $this;
     }
-
 }

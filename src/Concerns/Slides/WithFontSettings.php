@@ -4,14 +4,20 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithFontSettings
 {
-
     public ?int $size = null;
+
     public ?string $color = null;
+
     public float $letterSpacing = 0;
+
     public ?string $font = null;
+
     public bool $bold = false;
+
     public bool $underlined = false;
+
     public int $lineHeight = 100;
+
     public bool $uppercase = false;
 
     public function size(int $size): static
@@ -69,5 +75,4 @@ trait WithFontSettings
 
         return $this;
     }
-
 }
