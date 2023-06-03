@@ -83,7 +83,7 @@ class Presentation
         Storage::disk($disk)->makeDirectory($directory);
         $path = Storage::disk($disk)->path("$directory/$filename.pptx");
 
-        $writer = IOFactory::createWriter($this->ppt);
+        $writer = IOFactory::createWriter($this->document);
         $writer->save($path);
 
         return $path;
