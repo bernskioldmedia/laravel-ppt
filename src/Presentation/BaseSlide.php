@@ -197,4 +197,9 @@ abstract class BaseSlide
             ->setOffsetY($y);
 
     }
+
+    public function raw(): Slide
+    {
+        return $this->slide;
+    }
 }
