@@ -2,6 +2,7 @@
 
 namespace BernskioldMedia\LaravelPpt;
 
+use BernskioldMedia\LaravelPpt\Commands\CreateNewSlideCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use BernskioldMedia\LaravelPpt\Commands\CreateNewSlideDeckCommand;
@@ -13,6 +14,9 @@ class LaravelPptServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-ppt')
             ->hasConfigFile()
-            ->hasCommand(CreateNewSlideDeckCommand::class);
+            ->hasConsoleCommands([
+                CreateNewSlideDeckCommand::class,
+                CreateNewSlideCommand::class,
+            ]);
     }
 }

@@ -3,7 +3,6 @@
 namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
-use BernskioldMedia\LaravelPpt\Foundations\Component;
 use PhpOffice\PhpPresentation\Shape\Drawing\File;
 use PhpOffice\PhpPresentation\Style\Border;
 

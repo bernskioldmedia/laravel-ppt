@@ -2,8 +2,8 @@
 
 namespace App\SlideDecks\{{ $name }}
 
-use BernskioldMedia\LaravelPpt\Foundations\SlideDeck;
-use BernskioldMedia\LaravelPpt\Foundations\Presentation;
+use BernskioldMedia\LaravelPpt\Presentation\SlideDeck;
+use BernskioldMedia\LaravelPpt\Presentation\Presentation;
 
 class {{ $name }} extends SlideDeck
 {

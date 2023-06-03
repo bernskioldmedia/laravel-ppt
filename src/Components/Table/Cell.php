@@ -1,6 +1,6 @@
 <?php
 
-namespace BernskioldMedia\LaravelPpt\Components;
+namespace BernskioldMedia\LaravelPpt\Components\Table;
 
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;

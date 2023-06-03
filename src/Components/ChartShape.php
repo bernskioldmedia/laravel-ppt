@@ -4,8 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
-use BernskioldMedia\LaravelPpt\Foundations\Component;
-use BernskioldMedia\LaravelPpt\Foundations\ChartComponent;
 use PhpOffice\PhpPresentation\Shape\Chart\Gridlines;
 use PhpOffice\PhpPresentation\Shape\Chart\Legend;
 use PhpOffice\PhpPresentation\Shape\Chart\Type\Line;

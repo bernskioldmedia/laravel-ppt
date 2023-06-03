@@ -8,10 +8,6 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithRotation;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
-use BernskioldMedia\LaravelPpt\Foundations\Component;
-use PhpOffice\PhpPresentation\Shape\Hyperlink;
-use PhpOffice\PhpPresentation\Style\Color;
-use PhpOffice\PhpPresentation\Style\Fill;
 
 class MultiTextBox extends Component
 {

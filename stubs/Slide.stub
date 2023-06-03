@@ -2,8 +2,8 @@
 
 namespace App\SlideDecks\{{ $deck }}\Slides;
 
-use BernskioldMedia\LaravelPpt\Foundations\PresentationSlide;
-use BernskioldMedia\LaravelPpt\Foundations\BaseSlide;
+use BernskioldMedia\LaravelPpt\Presentation\PresentationSlide;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use BernskioldMedia\LaravelPpt\SlideMasters\Blank;
 
 class {{ $name }} extends PresentationSlide

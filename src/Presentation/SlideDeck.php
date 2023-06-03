@@ -1,6 +1,6 @@
 <?php
 
-namespace BernskioldMedia\LaravelPpt\Foundations;
+namespace BernskioldMedia\LaravelPpt\Presentation;
 
 abstract class SlideDeck
 {

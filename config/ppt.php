@@ -15,6 +15,9 @@ return [
         'charts' => [
             'seriesColor' => 'ff000000',
         ],
+        'masters' => [
+            'slideTitleParagraphStyle' => 'slideTitle',
+        ],
     ],
 
     'baseBranding' => [

@@ -8,7 +8,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundImage;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithChartBackground;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLogo;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
-use BernskioldMedia\LaravelPpt\Foundations\BaseSlide;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
 class SlideTheme
 {

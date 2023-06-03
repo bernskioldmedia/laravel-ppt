@@ -2,7 +2,7 @@
 
 namespace BernskioldMedia\LaravelPpt\Components\Charts;
 
-use BernskioldMedia\LaravelPpt\Foundations\ChartComponent;
+use BernskioldMedia\LaravelPpt\Components\ChartComponent;
 use PhpOffice\PhpPresentation\Shape\Chart\Marker;
 use PhpOffice\PhpPresentation\Shape\Chart\Series;
 use PhpOffice\PhpPresentation\Style\Fill;

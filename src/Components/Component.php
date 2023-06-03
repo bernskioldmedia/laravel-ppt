@@ -1,13 +1,16 @@
 <?php
 
-namespace BernskioldMedia\LaravelPpt\Foundations;
+namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPosition;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+use Illuminate\Support\Traits\Conditionable;
 
 abstract class Component
 {
-    use WithPosition,
+    use Conditionable,
+        WithPosition,
         WithSize;
 
     public BaseSlide $slide;

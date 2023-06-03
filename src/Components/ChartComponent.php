@@ -1,6 +1,6 @@
 <?php
 
-namespace BernskioldMedia\LaravelPpt\Foundations;
+namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\ControlsDataVisibility;

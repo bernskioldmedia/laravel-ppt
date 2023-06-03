@@ -1,10 +1,10 @@
 <?php
 
-namespace BernskioldMedia\LaravelPpt\Components;
+namespace BernskioldMedia\LaravelPpt\Components\Table;
 
+use BernskioldMedia\LaravelPpt\Components\Component;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
-use BernskioldMedia\LaravelPpt\Foundations\Component;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Font;
 

@@ -2,7 +2,7 @@
 
 namespace BernskioldMedia\LaravelPpt\Components\Charts;
 
-use BernskioldMedia\LaravelPpt\Foundations\ChartComponent;
+use BernskioldMedia\LaravelPpt\Components\ChartComponent;
 
 class Bar extends ChartComponent
 {

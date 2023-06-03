@@ -2,8 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Components;
 
-use BernskioldMedia\LaravelPpt\Foundations\Component;
-
 class BulletPointBox extends Component
 {
 
