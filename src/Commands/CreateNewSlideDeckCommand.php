@@ -2,14 +2,13 @@
 
 namespace BernskioldMedia\LaravelPpt\Commands;
 
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
 use function array_keys;
 use function array_map;
 use function array_values;
 use function config;
 use function file_get_contents;
 use function file_put_contents;
+use Illuminate\Console\Command;
 use function is_dir;
 use function mkdir;
 use function str;
@@ -23,24 +22,25 @@ class CreateNewSlideDeckCommand extends Command
 
     public function handle(): int
     {
-        $stub = file_get_contents(__DIR__ . '/../../stubs/SlideDeck.stub');
+        $stub = file_get_contents(__DIR__.'/../../stubs/SlideDeck.stub');
 
         $replacements = [
             'name' => str($this->argument('name'))->camel()->ucfirst(),
         ];
 
         $stub = str_replace(
-            array_map(fn($key) => '{{ $' . $key . ' }}', array_keys($replacements)),
+            array_map(fn ($key) => '{{ $'.$key.' }}', array_keys($replacements)),
             array_values($replacements),
             $stub
         );
 
-        $directory = config('ppt.paths.slideDecks') . '/' . $replacements['name'];
-        $path = $directory . '/' . $replacements['name'] . '.php';
+        $directory = config('ppt.paths.slideDecks').'/'.$replacements['name'];
+        $path = $directory.'/'.$replacements['name'].'.php';
 
         // Create the directory if it doesn't exist.
-        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+        if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
             $this->error('Directory was not created.');
+
             return self::FAILURE;
         }
 

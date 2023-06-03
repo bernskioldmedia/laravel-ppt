@@ -3,9 +3,8 @@
 namespace BernskioldMedia\LaravelPpt\Commands;
 
 use function config;
-use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Storage;
 use function file_put_contents;
+use Illuminate\Console\Command;
 use function is_dir;
 use function mkdir;
 
@@ -34,8 +33,9 @@ class CreateNewSlideCommand extends Command
         $path = $directory.'/'.$replacements['name'].'.php';
 
         // Create the directory if it doesn't exist.
-        if (!is_dir($directory) && !mkdir($directory, 0755, true) && !is_dir($directory)) {
+        if (! is_dir($directory) && ! mkdir($directory, 0755, true) && ! is_dir($directory)) {
             $this->error('Directory was not created.');
+
             return self::FAILURE;
         }
 
