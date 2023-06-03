@@ -2,9 +2,9 @@
 
 namespace BernskioldMedia\LaravelPpt\Tests;
 
+use BernskioldMedia\LaravelPpt\LaravelPptServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use BernskioldMedia\LaravelPpt\LaravelPptServiceProvider;
 
 class TestCase extends Orchestra
 {
