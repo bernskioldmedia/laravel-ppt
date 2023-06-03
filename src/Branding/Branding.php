@@ -112,13 +112,13 @@ class Branding
 
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
-        $style = array_filter($this->paragraphStyles(), fn ($style) => $style->key() === $key)[0] ?? null;
+        $style = array_filter($this->paragraphStyles(), fn (ParagraphStyle $style) => $style->key === $key)[0] ?? null;
 
         if ($style) {
             return $style;
         }
 
-        return array_filter($this->defaultParagraphStyles(), fn ($style) => $style->key() === $key)[0] ?? null;
+        return array_filter($this->defaultParagraphStyles(), fn (ParagraphStyle $style) => $style->key === $key)[0] ?? null;
     }
 
     public function paragraphStyleValue(string $styleKey, string $property): mixed

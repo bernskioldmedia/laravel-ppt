@@ -13,7 +13,7 @@ class ParagraphStyle implements Arrayable
     use Makeable,
         WithFontSettings;
 
-    protected string $key;
+    public string $key;
 
     public function __construct(string $key)
     {
