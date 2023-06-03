@@ -63,7 +63,7 @@ class TextBox extends Component
 
         // Calculate a default height based on how many lines we have asked for.
         if (! $this->height) {
-            $this->height = $this->size * $this->lines;
+            $this->height = ($this->size ?? 12) * $this->lines;
         }
 
         $this->shape->setWidth($this->width)
@@ -101,6 +101,11 @@ class TextBox extends Component
         }
 
         return $this;
+    }
+
+    protected function defaultHeight(): float
+    {
+        return ($this->size ?? 12) * $this->lines;
     }
 
     public function lines(int $lines): static
