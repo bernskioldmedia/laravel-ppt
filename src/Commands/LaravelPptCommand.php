@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace BernskioldMedia\LaravelPpt\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelPptCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-ppt';
 
     public $description = 'My command';
 
