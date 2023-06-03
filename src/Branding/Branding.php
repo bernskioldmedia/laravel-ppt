@@ -8,6 +8,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use Illuminate\Support\Str;
 use PhpOffice\PhpPresentation\Style\Color;
 use ReflectionClass;
+use function collect;
 use function resource_path;
 
 class Branding
@@ -130,13 +131,17 @@ class Branding
 
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
-        $style = array_filter($this->paragraphStyles(), fn(ParagraphStyle $style) => $style->key === $key)[0] ?? null;
+        $style = collect($this->paragraphStyles())
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->first();
 
         if ($style) {
             return $style;
         }
 
-        return array_filter($this->defaultParagraphStyles(), fn(ParagraphStyle $style) => $style->key === $key)[0] ?? null;
+        return collect($this->defaultParagraphStyles())
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->first();
     }
 
     public function paragraphStyleValue(string $styleKey, string $property): mixed
@@ -147,7 +152,7 @@ class Branding
             return null;
         }
 
-        return $style[$property] ?? null;
+        return $style->{$property} ?? null;
     }
 
     public function getChartColor(int $id, bool $asObject = true): string|Color
