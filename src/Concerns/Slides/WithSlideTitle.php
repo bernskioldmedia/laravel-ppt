@@ -36,7 +36,7 @@ trait WithSlideTitle
     protected function renderTitle(): TextBox
     {
         $title = TextBox::make($this, $this->slideTitle)
-            ->paragraphStyle(config('ppt.defaults.masters.slideTitleParagraphStyle', 'slideTitle'))
+            ->paragraphStyle(config('powerpoint.defaults.masters.slideTitleParagraphStyle', 'slideTitle'))
             ->alignLeft()
             ->position($this->horizontalPadding, $this->verticalPadding)
             ->width($this->presentation->width - (2 * $this->horizontalPadding))

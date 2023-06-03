@@ -34,10 +34,10 @@ class Branding
 
     public function __construct()
     {
-        $this->baseFont = config('ppt.baseBranding.font', 'Calibri');
-        $this->creatorCompanyName = config('ppt.baseBranding.creatorCompanyName', '');
-        $this->websiteUrl = config('ppt.baseBranding.websiteUrl', '#');
-        $this->defaultChartColors = config('ppt.baseBranding.chartColors', 'ff000000');
+        $this->baseFont = config('powerpoint.baseBranding.font', 'Calibri');
+        $this->creatorCompanyName = config('powerpoint.baseBranding.creatorCompanyName', '');
+        $this->websiteUrl = config('powerpoint.baseBranding.websiteUrl', '#');
+        $this->defaultChartColors = config('powerpoint.baseBranding.chartColors', 'ff000000');
     }
 
     public function url(): string
@@ -134,7 +134,7 @@ class Branding
 
     public function getChartColor(int $id, bool $asObject = true): string|Color
     {
-        $argb = $this->getChartColors()[$id] ?? config('ppt.defaults.charts.seriesColor', 'ff000000');
+        $argb = $this->getChartColors()[$id] ?? config('powerpoint.defaults.charts.seriesColor', 'ff000000');
 
         if ($asObject) {
             return new Color($argb);

@@ -3,12 +3,19 @@
 namespace BernskioldMedia\LaravelPpt\Components\Charts;
 
 use BernskioldMedia\LaravelPpt\Components\ChartComponent;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLegend;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithXAxis;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithYAxis;
 use PhpOffice\PhpPresentation\Shape\Chart\Marker;
 use PhpOffice\PhpPresentation\Shape\Chart\Series;
 use PhpOffice\PhpPresentation\Style\Fill;
 
 class Line extends ChartComponent
 {
+    use WithYAxis,
+        WithXAxis,
+        WithLegend;
+
     public bool $smooth = false;
 
     protected function initializeChart(): void

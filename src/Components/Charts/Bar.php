@@ -3,9 +3,16 @@
 namespace BernskioldMedia\LaravelPpt\Components\Charts;
 
 use BernskioldMedia\LaravelPpt\Components\ChartComponent;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLegend;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithXAxis;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithYAxis;
 
 class Bar extends ChartComponent
 {
+    use WithYAxis,
+        WithXAxis,
+        WithLegend;
+
     protected bool $stacked = false;
 
     protected bool $percentageStacked = false;

@@ -36,12 +36,12 @@ class Presentation
         $this->user = auth()->user();
 
         // Set default sizes.
-        $this->width = $width ?? config('ppt.defaults.presentation.width', 1280);
-        $this->height = $height ?? config('ppt.defaults.presentation.height', 720);
+        $this->width = $width ?? config('powerpoint.defaults.presentation.width', 1280);
+        $this->height = $height ?? config('powerpoint.defaults.presentation.height', 720);
 
         // Set default padding.
-        $this->verticalPadding = config('ppt.defaults.presentation.verticalPadding', 0);
-        $this->horizontalPadding = config('ppt.defaults.presentation.horizontalPadding', 0);
+        $this->verticalPadding = config('powerpoint.defaults.presentation.verticalPadding', 0);
+        $this->horizontalPadding = config('powerpoint.defaults.presentation.horizontalPadding', 0);
 
         // Create the presentation instance.
         $this->document = new PhpPresentation();
@@ -55,7 +55,7 @@ class Presentation
         } elseif ($this->user instanceof CustomizesPowerpointBranding && class_exists($this->user->powerpointBrandingClass())) {
             $this->branding($this->user->powerpointBrandingClass());
         } else {
-            $this->branding(config('ppt.defaults.presentation.branding', Branding::class));
+            $this->branding(config('powerpoint.defaults.presentation.branding', Branding::class));
         }
     }
 
@@ -75,10 +75,10 @@ class Presentation
     public function save(string $filename, ?string $disk = null): string
     {
         if (! $disk) {
-            $disk = config('ppt.output.disk', 'local');
+            $disk = config('powerpoint.output.disk', 'local');
         }
 
-        $directory = config('ppt.output.directory', 'ppt');
+        $directory = config('powerpoint.output.directory', 'ppt');
 
         Storage::disk($disk)->makeDirectory($directory);
         $path = Storage::disk($disk)->path("$directory/$filename.pptx");

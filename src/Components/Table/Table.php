@@ -56,7 +56,7 @@ class Table extends Component
 
                 $fontSize = $cell->size ?? $row->size ?? $this->size ?? 14;
                 $color = $cell->color ?? $row->color ?? $this->color ?? Color::COLOR_BLACK;
-                $font = $cell->font ?? $row->font ?? $this->font ?? config('ppt.baseBranding.font');
+                $font = $cell->font ?? $row->font ?? $this->font ?? config('powerpoint.baseBranding.font');
 
                 $tableCell->createTextRun($cell->text)
                     ->getFont()

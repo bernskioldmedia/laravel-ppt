@@ -15,7 +15,7 @@ trait WithBackgroundImage
         }
 
         if (! $isFull) {
-            $path = config('ppt.paths.base').'/'.$path;
+            $path = config('powerpoint.paths.base').'/'.$path;
         }
 
         $this->backgroundImage = $path;

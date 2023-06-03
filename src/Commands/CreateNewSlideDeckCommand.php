@@ -34,7 +34,7 @@ class CreateNewSlideDeckCommand extends Command
             $stub
         );
 
-        $directory = config('ppt.paths.slideDecks').'/'.$replacements['name'];
+        $directory = config('powerpoint.paths.slideDecks').'/'.$replacements['name'];
         $path = $directory.'/'.$replacements['name'].'.php';
 
         // Create the directory if it doesn't exist.
