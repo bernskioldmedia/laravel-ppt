@@ -13,11 +13,15 @@ class BlankWithTitleSubtitle extends BaseSlide
     use WithCustomContents,
         WithSlideTitle;
 
+    protected ?string $subtitle = null;
+
     public function __construct(
-        protected string $title,
-        protected string $subtitle,
+        string $title,
+        string $subtitle,
         ?callable $callback = null
     ) {
+        $this->slideTitle = $title;
+        $this->subtitle = $subtitle;
         $this->contents = $callback;
     }
 
