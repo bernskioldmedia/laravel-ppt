@@ -2,13 +2,12 @@
 
 namespace BernskioldMedia\LaravelPpt\Branding;
 
-use function array_filter;
 use function array_merge;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
+use function collect;
 use Illuminate\Support\Str;
 use PhpOffice\PhpPresentation\Style\Color;
 use ReflectionClass;
-use function collect;
 use function resource_path;
 
 class Branding
@@ -132,7 +131,7 @@ class Branding
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
         $style = collect($this->paragraphStyles())
-            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
             ->first();
 
         if ($style) {
@@ -140,7 +139,7 @@ class Branding
         }
 
         return collect($this->defaultParagraphStyles())
-            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
             ->first();
     }
 
@@ -148,7 +147,7 @@ class Branding
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (!$style) {
+        if (! $style) {
             return null;
         }
 
