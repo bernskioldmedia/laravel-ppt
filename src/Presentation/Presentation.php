@@ -89,6 +89,19 @@ class Presentation
         return $path;
     }
 
+    /**
+     * @param array<BaseSlide> $slides
+     * @return $this
+     */
+    public function slides(array $slides = []): static
+    {
+        foreach ($slides as $slide) {
+            $slide->create($this);
+        }
+
+        return $this;
+    }
+
     public function width(int $width): static
     {
         $this->width = $width;
@@ -115,11 +128,6 @@ class Presentation
         $this->user = $user;
 
         return $this;
-    }
-
-    public function hasBranding(): bool
-    {
-        return $this->branding !== null;
     }
 
     protected function saveProperties(): void
