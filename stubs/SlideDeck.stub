@@ -1,0 +1,22 @@
+<?php
+
+namespace App\SlideDecks\{{ $name }}
+
+use BernskioldMedia\LaravelPpt\Foundations\SlideDeck;
+use BernskioldMedia\LaravelPpt\Foundations\Presentation;
+
+class {{ $name }} extends SlideDeck
+{
+
+    public function create(): Presentation
+    {
+        return Presentation::make(
+            title: ''
+        )
+            ->slides([
+                // Add slides here...
+            ])
+            ->create();
+    }
+
+}

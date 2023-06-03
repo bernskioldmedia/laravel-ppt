@@ -1,6 +1,40 @@
 <?php
 
-// config for BernskioldMedia/LaravelPpt
+use BernskioldMedia\LaravelPpt\Branding\Branding;
+
 return [
+
+    'defaults' => [
+        'presentation' => [
+            'width' => 1280,
+            'height' => 720,
+            'verticalPadding' => 40,
+            'horizontalPadding' => 40,
+            'branding' => Branding::class,
+        ],
+        'charts' => [
+            'seriesColor' => 'ff000000',
+        ],
+    ],
+
+    'baseBranding' => [
+        'creatorCompanyName' => 'Bernskiold Media',
+        'websiteUrl' => 'https://bernskioldmedia.com',
+        'font' => 'Arial',
+        'chartColors' => [
+            'ff000000',
+        ],
+    ],
+
+    'output' => [
+        'disk' => 'local',
+        'directory' => 'ppt',
+    ],
+
+    'paths' => [
+        'slideDecks' => app_path('SlideDecks'),
+        'base' => resource_path('presentations'),
+        'branding' => resource_path('presentations/branding'),
+    ],
 
 ];
