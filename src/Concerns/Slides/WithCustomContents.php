@@ -6,7 +6,6 @@ use Closure;
 
 trait WithCustomContents
 {
-
     protected ?Closure $contents = null;
 
     public function content(?callable $callback = null): static
@@ -23,5 +22,4 @@ trait WithCustomContents
             $callback($this);
         }
     }
-
 }

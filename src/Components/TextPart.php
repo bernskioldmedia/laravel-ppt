@@ -17,8 +17,7 @@ class TextPart
 
     public function __construct(
         protected string $text = ''
-    )
-    {
+    ) {
     }
 
     public function toTextRun(Component $component): Run
@@ -41,5 +40,4 @@ class TextPart
 
         return $textRun;
     }
-
 }

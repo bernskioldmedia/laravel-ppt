@@ -20,8 +20,7 @@ class MultiTextBox extends Component
 
     public function __construct(
         protected ?array $texts = []
-    )
-    {
+    ) {
     }
 
     protected function initialize(): static
@@ -47,7 +46,7 @@ class MultiTextBox extends Component
         $this->maybeDefaultDimensions();
 
         // Apply the paragraph style if it exists.
-        if (!empty($this->paragraphStyle)) {
+        if (! empty($this->paragraphStyle)) {
             $this->slide
                 ->presentation
                 ->branding
@@ -77,7 +76,7 @@ class MultiTextBox extends Component
 
         $this->shape->setRotation($this->rotation);
 
-        if (!$this->color) {
+        if (! $this->color) {
             $this->color = $this->slide->textColor;
         }
 

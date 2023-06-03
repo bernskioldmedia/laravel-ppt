@@ -18,5 +18,4 @@ class Blank extends BaseSlide
     {
         $this->renderContents();
     }
-
 }

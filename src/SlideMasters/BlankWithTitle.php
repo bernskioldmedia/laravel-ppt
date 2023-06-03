@@ -12,10 +12,9 @@ class BlankWithTitle extends BaseSlide
         WithSlideTitle;
 
     public function __construct(
-        string    $title,
+        string $title,
         ?callable $callback = null
-    )
-    {
+    ) {
         $this->title($title);
         $this->contents = $callback;
     }
@@ -25,5 +24,4 @@ class BlankWithTitle extends BaseSlide
         $this->renderContents();
         $this->renderTitle();
     }
-
 }
