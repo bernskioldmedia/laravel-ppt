@@ -19,7 +19,7 @@ class TitleSubtitle extends BaseSlide
             ->paragraphStyle('sectionTitle')
             ->alignBottom()
             ->lines(1)
-            ->y(($this->presentation->height / 2) - ($this->presentation->branding->paragraphStyleValue('sectionTitle', 'size') + 20))
+            ->y(($this->presentation->height / 2) - ($this->presentation->branding->paragraphStyleValue('sectionTitle', 'size') + 10))
             ->centerHorizontally()
             ->render();
 
@@ -27,7 +27,7 @@ class TitleSubtitle extends BaseSlide
             ->paragraphStyle('sectionSubtitle')
             ->alignTop()
             ->lines(2)
-            ->y(($this->presentation->height / 2) + 20)
+            ->y(($this->presentation->height / 2) + 10)
             ->centerHorizontally()
             ->render();
     }

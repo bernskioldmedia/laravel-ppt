@@ -34,7 +34,7 @@ class BlankWithTitleSubtitle extends BaseSlide
         TextBox::make($this, $this->subtitle)
             ->paragraphStyle(config('powerpoint.defaults.masters.slideSubtitleParagraphStyle', 'slideSubtitle'))
             ->alignLeft()
-            ->position($this->horizontalPadding, $this->verticalPadding + 10 + $title->height)
+            ->position($this->horizontalPadding, $this->verticalPadding + 15 + $title->height)
             ->width($this->presentation->width - (2 * $this->horizontalPadding))
             ->lines(1)
             ->render();

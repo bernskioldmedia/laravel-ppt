@@ -66,6 +66,10 @@ class TextBox extends Component
             $this->height = ($this->size ?? 12) * $this->lines;
         }
 
+        if(!$this->width) {
+            $this->width = $this->slide->presentation->width - $this->x * 2;
+        }
+
         $this->shape->setWidth($this->width)
             ->setHeight($this->height)
             ->setOffsetX($this->x)
