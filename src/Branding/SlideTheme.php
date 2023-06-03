@@ -35,7 +35,7 @@ class SlideTheme
         }
 
         if ($this->backgroundImage) {
-            $slide->backgroundImage($this->backgroundImage);
+            $slide->backgroundImage($this->backgroundImage, true);
         }
 
         if ($this->chartBackgroundColor) {

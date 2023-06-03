@@ -11,13 +11,13 @@ class ChartText extends BaseSlide
 {
     public function __construct(
         protected string $text,
-        protected ChartComponent $graphComponent,
+        protected ChartComponent $chart,
     ) {
     }
 
     protected function render(): void
     {
-        ChartShape::make($this, $this->graphComponent->slide($this)->get())
+        ChartShape::make($this, $this->chart->slide($this)->get())
             ->height($this->height + 1)
             ->width(660)
             ->backgroundColor($this->chartBackgroundColor)
