@@ -12,10 +12,9 @@ class ChartTitle extends BaseSlide
     use WithSlideTitle;
 
     public function __construct(
-        string                   $title,
+        string $title,
         protected ChartComponent $chart,
-    )
-    {
+    ) {
         $this->title($title);
     }
 

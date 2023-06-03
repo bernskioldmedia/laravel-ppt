@@ -4,15 +4,13 @@ namespace BernskioldMedia\LaravelPpt\SlideMasters;
 
 use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
-use PhpOffice\PhpPresentation\Style\Alignment;
 
 class TitleSubtitle extends BaseSlide
 {
     public function __construct(
         public string $title,
         public string $subtitle,
-    )
-    {
+    ) {
     }
 
     protected function render(): void

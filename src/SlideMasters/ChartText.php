@@ -10,10 +10,9 @@ use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 class ChartText extends BaseSlide
 {
     public function __construct(
-        protected string         $text,
+        protected string $text,
         protected ChartComponent $graphComponent,
-    )
-    {
+    ) {
     }
 
     protected function render(): void

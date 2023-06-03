@@ -6,8 +6,6 @@ use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithCustomContents;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
-use Closure;
-use PhpOffice\PhpPresentation\Style\Alignment;
 use function config;
 
 class BlankWithTitleSubtitle extends BaseSlide
@@ -18,9 +16,8 @@ class BlankWithTitleSubtitle extends BaseSlide
     public function __construct(
         protected string $title,
         protected string $subtitle,
-        ?callable        $callback = null
-    )
-    {
+        ?callable $callback = null
+    ) {
         $this->contents = $callback;
     }
 

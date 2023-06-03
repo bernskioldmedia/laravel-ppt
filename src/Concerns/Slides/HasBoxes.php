@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait HasBoxes
 {
-
     protected array $boxes = [];
 
     public function box(int $index, string $title, string $description): static
@@ -21,5 +20,4 @@ trait HasBoxes
 
         return $this;
     }
-
 }

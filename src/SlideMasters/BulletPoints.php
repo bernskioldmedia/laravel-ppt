@@ -14,10 +14,9 @@ class BulletPoints extends BaseSlide
     use WithSlideTitle;
 
     public function __construct(
-        string          $title,
+        string $title,
         protected array $bulletPoints = [],
-    )
-    {
+    ) {
     }
 
     public function bullet(string $text): self
@@ -35,7 +34,7 @@ class BulletPoints extends BaseSlide
         $box = null;
 
         foreach ($this->bulletPoints as $bulletPoint) {
-            if (!$box) {
+            if (! $box) {
                 $box = TextBox::make($this, $bulletPoint)
                     ->paragraphStyle('bulletPoint')
                     ->height($this->presentation->height - $titleBox->height - 200)

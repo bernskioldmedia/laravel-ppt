@@ -10,8 +10,7 @@ class Chart extends BaseSlide
 {
     public function __construct(
         protected ChartComponent $chart
-    )
-    {
+    ) {
     }
 
     protected function render(): void

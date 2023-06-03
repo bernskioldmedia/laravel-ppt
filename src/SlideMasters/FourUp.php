@@ -14,8 +14,7 @@ class FourUp extends BaseSlide
 
     public function __construct(
         string $title = '',
-    )
-    {
+    ) {
         $this->slideTitle = $title;
     }
 
@@ -31,7 +30,7 @@ class FourUp extends BaseSlide
 
     protected function makeBoxes(int $index, int $column = 1, int $row = 1): void
     {
-        if (!isset($this->boxes[$index - 1])) {
+        if (! isset($this->boxes[$index - 1])) {
             return;
         }
 

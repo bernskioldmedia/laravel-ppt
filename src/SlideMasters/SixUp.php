@@ -6,7 +6,6 @@ use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\HasBoxes;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
-use PhpOffice\PhpPresentation\Style\Alignment;
 
 class SixUp extends BaseSlide
 {
@@ -15,8 +14,7 @@ class SixUp extends BaseSlide
 
     public function __construct(
         protected string $title = '',
-    )
-    {
+    ) {
     }
 
     protected function render(): void
@@ -33,7 +31,7 @@ class SixUp extends BaseSlide
 
     protected function makeBoxes(int $index, int $column = 1, int $row = 1): void
     {
-        if (!isset($this->boxes[$index - 1])) {
+        if (! isset($this->boxes[$index - 1])) {
             return;
         }
 

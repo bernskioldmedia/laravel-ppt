@@ -6,7 +6,6 @@ use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\HasBoxes;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
-use PhpOffice\PhpPresentation\Style\Alignment;
 
 class TwoUp extends BaseSlide
 {
@@ -15,13 +14,12 @@ class TwoUp extends BaseSlide
 
     public function __construct(
         string $title = '',
-    )
-    {
+    ) {
     }
 
     protected function render(): void
     {
-        if (!empty($this->title)) {
+        if (! empty($this->title)) {
             $this->renderTitle();
         }
 

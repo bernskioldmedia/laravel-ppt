@@ -6,18 +6,16 @@ use BernskioldMedia\LaravelPpt\Components\ChartComponent;
 use BernskioldMedia\LaravelPpt\Components\ChartShape;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
-use PhpOffice\PhpPresentation\Style\Color;
 
 class ChartTitles extends BaseSlide
 {
     use WithSlideTitle;
 
     public function __construct(
-        string                   $slideTitle,
-        protected string         $chartTitle,
+        string $slideTitle,
+        protected string $chartTitle,
         protected ChartComponent $chart,
-    )
-    {
+    ) {
         $this->title($slideTitle);
     }
 

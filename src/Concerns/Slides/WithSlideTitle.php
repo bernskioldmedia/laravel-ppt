@@ -3,7 +3,6 @@
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 use BernskioldMedia\LaravelPpt\Components\TextBox;
-use PhpOffice\PhpPresentation\Style\Alignment;
 
 trait WithSlideTitle
 {
