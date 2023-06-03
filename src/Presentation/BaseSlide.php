@@ -2,16 +2,19 @@
 
 namespace BernskioldMedia\LaravelPpt\Presentation;
 
+use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundImage;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithChartBackground;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithDataSource;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithEdgeImages;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLogo;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use Closure;
+use function config;
 use function file_exists;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
@@ -25,6 +28,7 @@ abstract class BaseSlide
         WithBackgroundColor,
         WithBackgroundImage,
         WithChartBackground,
+        WithDataSource,
         WithTextColor,
         WithEdgeImages,
         WithLogo,
@@ -79,6 +83,7 @@ abstract class BaseSlide
         $this->applyBackgroundColor();
         $this->applyBackgroundImage();
         $this->applyLogo();
+        $this->applyDataSource();
 
         $this->applyEdgeImage('topRight');
         $this->applyEdgeImage('bottomRight');
@@ -138,7 +143,7 @@ abstract class BaseSlide
             return;
         }
 
-        if (! $this->logo) {
+        if (!$this->logo) {
             return;
         }
 
@@ -155,9 +160,42 @@ abstract class BaseSlide
             ->setTooltip($this->presentation->branding->creatorCompanyName());
     }
 
+    protected function applyDataSource(): void
+    {
+        if (!$this->showDataSource) {
+            return;
+        }
+
+        if ($this->dataSourceMessage) {
+            if (str_contains($this->dataSourceMessage, 'Source:')) {
+                $text = $this->dataSourceMessage;
+            } else {
+                $text = __('Source: :application (:message)', [
+                    'application' => config('powerpoint.defaults.presentation.dataSourceApplication', ''),
+                    'message' => $this->dataSourceMessage,
+                ]);
+            }
+        } else {
+            $text = __('Source: :source', [
+                'source' => config('powerpoint.defaults.presentation.dataSource', ''),
+            ]);
+        }
+
+        TextBox::make($this, $text)
+            ->color($this->textColor)
+            ->alignRight()
+            ->width(500)
+            ->y($this->presentation->height - $this->presentation->verticalPadding)
+            ->x($this->presentation->width - 500 - $this->presentation->horizontalPadding)
+            ->bold(false)
+            ->size(8)
+            ->height($this->presentation->verticalPadding - 8)
+            ->render();
+    }
+
     protected function maybeGetAssetFile(string $name): ?string
     {
-        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
+        $fileWithoutExt = $this->presentation->branding->assetFolder() . '/' . $name;
 
         if (file_exists("$fileWithoutExt.jpg")) {
             return "$fileWithoutExt.jpg";
@@ -176,7 +214,7 @@ abstract class BaseSlide
         $imageDimensions = $this->{"{$key}ImageDimensions"};
         $position = $this->{"{$key}ImagePosition"};
 
-        if (! $imagePath) {
+        if (!$imagePath) {
             return;
         }
 

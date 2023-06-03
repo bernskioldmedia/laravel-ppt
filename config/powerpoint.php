@@ -11,6 +11,8 @@ return [
             'verticalPadding' => 40,
             'horizontalPadding' => 40,
             'branding' => Branding::class,
+            'dataSource' => '',
+            'dataSourceApplication' => config('app.name', '')
         ],
         'charts' => [
             'seriesColor' => 'ff000000',
