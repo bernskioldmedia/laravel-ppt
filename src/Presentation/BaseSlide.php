@@ -53,7 +53,8 @@ abstract class BaseSlide
         $this->horizontalPadding = $this->presentation->horizontalPadding;
 
         // Apply slide theme.
-        $this->presentation->branding->slideTheme(static::class)->applyToSlide($this);
+        $theme = $this->presentation->branding->slideTheme(static::class);
+        $theme->applyToSlide($this);
 
         // Apply slide-specific settings.
         $this->style();
@@ -62,7 +63,11 @@ abstract class BaseSlide
         tap($this, $this->modify);
 
         // Render the contents.
-        $this->render();
+        if ($theme->customMasterSlide) {
+            ($theme->customMasterSlide)($this);
+        } else {
+            $this->render();
+        }
 
         return $this->slide;
     }
@@ -133,7 +138,7 @@ abstract class BaseSlide
             return;
         }
 
-        if (! $this->logo) {
+        if (!$this->logo) {
             return;
         }
 
@@ -152,7 +157,7 @@ abstract class BaseSlide
 
     protected function maybeGetAssetFile(string $name): ?string
     {
-        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
+        $fileWithoutExt = $this->presentation->branding->assetFolder() . '/' . $name;
 
         if (file_exists("$fileWithoutExt.jpg")) {
             return "$fileWithoutExt.jpg";
@@ -171,7 +176,7 @@ abstract class BaseSlide
         $imageDimensions = $this->{"{$key}ImageDimensions"};
         $position = $this->{"{$key}ImagePosition"};
 
-        if (! $imagePath) {
+        if (!$imagePath) {
             return;
         }
 
