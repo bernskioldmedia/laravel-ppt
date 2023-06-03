@@ -11,8 +11,7 @@ use PhpOffice\PhpPresentation\Style\Fill;
 
 abstract class ChartComponent extends Component
 {
-    use Makeable,
-        ControlsDataVisibility;
+    use ControlsDataVisibility;
 
     public AbstractType $chart;
 
@@ -21,6 +20,11 @@ abstract class ChartComponent extends Component
     ) {
 
         $this->initializeChart();
+    }
+
+    public static function make(...$args): static
+    {
+        return new static(...$args);
     }
 
     protected function initializeChart(): void
