@@ -88,7 +88,7 @@ class TextBox extends Component
 
         $this->textRun->getFont()
             ->setName($this->font ?? $this->slide->presentation->branding->baseFont())
-            ->setSize($this->size)
+            ->setSize($this->size ?? 12)
             ->setBold($this->bold)
             ->setUnderline($this->underlined ? Font::UNDERLINE_SINGLE : Font::UNDERLINE_NONE)
             ->setCharacterSpacing($this->letterSpacing)
