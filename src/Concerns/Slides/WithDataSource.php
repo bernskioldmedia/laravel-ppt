@@ -15,6 +15,4 @@ trait WithDataSource
 
         return $this;
     }
-
-
 }
