@@ -40,8 +40,8 @@ class BulletPoints extends BaseSlide
                     ->height($this->presentation->height - $titleBox->height - 200)
                     ->width($this->presentation->width - (2 * $this->horizontalPadding))
                     ->position($this->horizontalPadding, $yOffset)
-                    ->horizontalAlignment(Alignment::HORIZONTAL_LEFT)
-                    ->verticalAlignment(Alignment::VERTICAL_TOP)
+                    ->alignLeft()
+                    ->alignTop()
                     ->render()
                     ->shape;
             } else {
@@ -59,7 +59,7 @@ class BulletPoints extends BaseSlide
                 ->getBulletStyle()
                 ->setBulletType(Bullet::TYPE_BULLET)
                 ->setBulletChar('•')
-                ->setBulletColor($this->textColor);
+                ->setBulletColor(new Color($this->textColor));
 
             $box->getActiveParagraph()
                 ->setSpacingAfter(20)
