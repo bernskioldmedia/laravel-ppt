@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Components;
 
-use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\ControlsDataVisibility;
 use PhpOffice\PhpPresentation\Shape\Chart\Series;
 use PhpOffice\PhpPresentation\Shape\Chart\Type\AbstractType;
