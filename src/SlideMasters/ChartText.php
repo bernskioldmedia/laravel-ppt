@@ -27,7 +27,7 @@ class ChartText extends BaseSlide
         TextBox::make($this, $this->text)
             ->paragraphStyle('body')
             ->alignLeft()
-            ->alignCenter()
+            ->alignMiddle()
             ->position($this->horizontalPadding, $this->verticalPadding)
             ->height(560)
             ->width(520)
