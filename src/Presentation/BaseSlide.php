@@ -151,7 +151,7 @@ abstract class BaseSlide
             return;
         }
 
-        if (!$this->logo) {
+        if (! $this->logo) {
             return;
         }
 
@@ -181,7 +181,7 @@ abstract class BaseSlide
 
     protected function applyDataSource(): void
     {
-        if (!$this->showDataSource) {
+        if (! $this->showDataSource) {
             return;
         }
 
@@ -214,7 +214,7 @@ abstract class BaseSlide
 
     protected function maybeGetAssetFile(string $name): ?string
     {
-        $fileWithoutExt = $this->presentation->branding->assetFolder() . '/' . $name;
+        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
 
         if (file_exists("$fileWithoutExt.jpg")) {
             return "$fileWithoutExt.jpg";
@@ -234,7 +234,7 @@ abstract class BaseSlide
         $position = $this->{"{$key}ImagePosition"};
         $url = $this->{"{$key}ImageUrl"};
 
-        if (!$imagePath) {
+        if (! $imagePath) {
             return;
         }
 
