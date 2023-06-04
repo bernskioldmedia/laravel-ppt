@@ -2,7 +2,6 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
-use BernskioldMedia\LaravelPpt\Branding\Branding;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
 trait WithLogo
