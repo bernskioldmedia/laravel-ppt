@@ -4,6 +4,7 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithEdgeImages
 {
+
     protected ?string $bottomLeftImagePath = null;
 
     protected ?string $bottomRightImagePath = null;
@@ -11,6 +12,14 @@ trait WithEdgeImages
     protected ?string $topRightImagePath = null;
 
     protected ?string $topLeftImagePath = null;
+
+    protected ?string $bottomLeftImageUrl = null;
+
+    protected ?string $bottomRightImageUrl = null;
+
+    protected ?string $topRightImageUrl = null;
+
+    protected ?string $topLeftImageUrl = null;
 
     protected array $bottomLeftImageDimensions = [];
 
@@ -28,7 +37,7 @@ trait WithEdgeImages
 
     protected array $topLeftImagePosition = [];
 
-    public function bottomLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null): self
+    public function bottomLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
         $this->bottomLeftImagePath = $path;
         $this->bottomLeftImageDimensions = ['width' => $width, 'height' => $height];
@@ -41,10 +50,14 @@ trait WithEdgeImages
             $this->bottomLeftImagePosition['y'] = $y;
         }
 
+        if ($url) {
+            $this->bottomLeftImageUrl = $url;
+        }
+
         return $this;
     }
 
-    public function bottomRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null): self
+    public function bottomRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
         $this->bottomRightImagePath = $path;
         $this->bottomRightImageDimensions = ['width' => $width, 'height' => $height];
@@ -57,10 +70,14 @@ trait WithEdgeImages
             $this->bottomRightImagePosition['y'] = $y;
         }
 
+        if ($url) {
+            $this->bottomRightImageUrl = $url;
+        }
+
         return $this;
     }
 
-    public function topLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null): self
+    public function topLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
         $this->topLeftImagePath = $path;
         $this->topLeftImageDimensions = ['width' => $width, 'height' => $height];
@@ -73,10 +90,14 @@ trait WithEdgeImages
             $this->topLeftImagePosition['y'] = $y;
         }
 
+        if ($url) {
+            $this->topLeftImageUrl = $url;
+        }
+
         return $this;
     }
 
-    public function topRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null): self
+    public function topRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
         $this->topRightImagePath = $path;
         $this->topRightImageDimensions = ['width' => $width, 'height' => $height];
@@ -87,6 +108,10 @@ trait WithEdgeImages
 
         if ($y) {
             $this->topRightImagePosition['y'] = $y;
+        }
+
+        if ($url) {
+            $this->topRightImageUrl = $url;
         }
 
         return $this;

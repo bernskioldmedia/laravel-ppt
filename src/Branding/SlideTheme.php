@@ -47,7 +47,7 @@ class SlideTheme
         }
 
         if ($this->logo) {
-            $slide->logo($this->logo, $this->logoDimensions);
+            $slide->logo($this->logo, $this->logoDimensions, $this->logoPosition);
         }
     }
 }

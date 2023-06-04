@@ -35,6 +35,14 @@ abstract class BaseSlide
         WithSize,
         Conditionable;
 
+    public const EDGE_IMAGE_POSITION_TOP_LEFT = 'topLeft';
+
+    public const EDGE_IMAGE_POSITION_TOP_RIGHT = 'topRight';
+
+    public const EDGE_IMAGE_POSITION_BOTTOM_LEFT = 'bottomLeft';
+
+    public const EDGE_IMAGE_POSITION_BOTTOM_RIGHT = 'bottomRight';
+
     public Presentation $presentation;
 
     public Slide $slide;
@@ -143,26 +151,37 @@ abstract class BaseSlide
             return;
         }
 
-        if (! $this->logo) {
+        if (!$this->logo) {
             return;
         }
 
-        $shape = $this->slide->createDrawingShape();
-
-        $shape->setName($this->presentation->branding->creatorCompanyName())
-            ->setPath($this->maybeGetAssetFile($this->logo))
-            ->setWidthAndHeight($this->logoDimensions['width'], $this->logoDimensions['height'])
-            ->setOffsetX($this->horizontalPadding)
-            ->setOffsetY($this->width - $this->logoDimensions['height'] - ($this->verticalPadding / 2));
-
-        $shape->getHyperlink()
-            ->setUrl($this->presentation->branding->url())
-            ->setTooltip($this->presentation->branding->creatorCompanyName());
+        match ($this->logoPosition) {
+            self::EDGE_IMAGE_POSITION_TOP_RIGHT => $this->topRightImage(
+                $this->logo,
+                $this->logoDimensions['width'],
+                $this->logoDimensions['height']
+            ),
+            self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->bottomRightImage(
+                $this->logo,
+                $this->logoDimensions['width'],
+                $this->logoDimensions['height']
+            ),
+            self::EDGE_IMAGE_POSITION_BOTTOM_LEFT => $this->bottomLeftImage(
+                $this->logo,
+                $this->logoDimensions['width'],
+                $this->logoDimensions['height']
+            ),
+            self::EDGE_IMAGE_POSITION_TOP_LEFT => $this->topLeftImage(
+                $this->logo,
+                $this->logoDimensions['width'],
+                $this->logoDimensions['height']
+            ),
+        };
     }
 
     protected function applyDataSource(): void
     {
-        if (! $this->showDataSource) {
+        if (!$this->showDataSource) {
             return;
         }
 
@@ -195,7 +214,7 @@ abstract class BaseSlide
 
     protected function maybeGetAssetFile(string $name): ?string
     {
-        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
+        $fileWithoutExt = $this->presentation->branding->assetFolder() . '/' . $name;
 
         if (file_exists("$fileWithoutExt.jpg")) {
             return "$fileWithoutExt.jpg";
@@ -213,26 +232,32 @@ abstract class BaseSlide
         $imagePath = $this->{"{$key}ImagePath"};
         $imageDimensions = $this->{"{$key}ImageDimensions"};
         $position = $this->{"{$key}ImagePosition"};
+        $url = $this->{"{$key}ImageUrl"};
 
-        if (! $imagePath) {
+        if (!$imagePath) {
             return;
         }
 
         $x = $position['x'] ?? match ($key) {
-            'topLeft', 'bottomLeft' => $this->horizontalPadding,
-            'topRight', 'bottomRight' => $this->presentation->width - $imageDimensions['width'] - $this->horizontalPadding,
+            self::EDGE_IMAGE_POSITION_TOP_LEFT, self::EDGE_IMAGE_POSITION_BOTTOM_LEFT => $this->horizontalPadding,
+            self::EDGE_IMAGE_POSITION_TOP_RIGHT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->width - $imageDimensions['width'] - $this->horizontalPadding,
         };
 
         $y = $position['y'] ?? match ($key) {
-            'topLeft', 'topRight' => $this->verticalPadding,
-            'bottomLeft', 'bottomRight' => $this->presentation->height - $imageDimensions['height'] - $this->verticalPadding,
+            self::EDGE_IMAGE_POSITION_TOP_LEFT, self::EDGE_IMAGE_POSITION_TOP_RIGHT => $this->verticalPadding,
+            self::EDGE_IMAGE_POSITION_BOTTOM_LEFT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->height - $imageDimensions['height'] - $this->verticalPadding,
         };
 
-        $this->slide->createDrawingShape()
-            ->setPath($imagePath)
+        $shape = $this->slide->createDrawingShape();
+
+        $shape->setPath($imagePath)
             ->setWidthAndHeight($imageDimensions['width'], $imageDimensions['height'])
             ->setOffsetX($x)
             ->setOffsetY($y);
+
+        if ($url) {
+            $shape->getHyperlink()->setUrl($url);
+        }
 
     }
 

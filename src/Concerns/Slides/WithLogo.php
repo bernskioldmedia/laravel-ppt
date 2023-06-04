@@ -2,16 +2,21 @@
 
 namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
+use BernskioldMedia\LaravelPpt\Branding\Branding;
+
 trait WithLogo
 {
     public ?string $logo = null;
 
     public array $logoDimensions = [];
 
-    public function logo(string $fileName, array $dimensions = []): static
+    public string $logoPosition = Branding::LOGO_POSITION_TOP_LEFT;
+
+    public function logo(string $path, array $dimensions = [], string $position = Branding::LOGO_POSITION_TOP_LEFT): static
     {
-        $this->logo = $fileName;
+        $this->logo = $path;
         $this->logoDimensions = $dimensions;
+        $this->logoPosition = $position;
 
         return $this;
     }
