@@ -15,7 +15,6 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use Closure;
 use function config;
-use function file_exists;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
