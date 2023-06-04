@@ -72,6 +72,7 @@ class Branding
                     'height' => 50,
                 ],
                 position: BaseSlide::EDGE_IMAGE_POSITION_BOTTOM_LEFT,
+                url: $this->url(),
             )
             ->backgroundColor('ffffffff')
             ->chartBackgroundColor('ffffffff')

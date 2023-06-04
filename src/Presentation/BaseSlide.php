@@ -212,21 +212,6 @@ abstract class BaseSlide
             ->render();
     }
 
-    protected function maybeGetAssetFile(string $name): ?string
-    {
-        $fileWithoutExt = $this->presentation->branding->assetFolder().'/'.$name;
-
-        if (file_exists("$fileWithoutExt.jpg")) {
-            return "$fileWithoutExt.jpg";
-        }
-
-        if (file_exists("$fileWithoutExt.png")) {
-            return "$fileWithoutExt.png";
-        }
-
-        return null;
-    }
-
     protected function applyEdgeImage(string $key): void
     {
         $imagePath = $this->{"{$key}ImagePath"};
