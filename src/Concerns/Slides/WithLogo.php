@@ -20,4 +20,12 @@ trait WithLogo
 
         return $this;
     }
+
+    public function withoutLogo(): static
+    {
+        $this->logo = null;
+        $this->logoDimensions = [];
+
+        return $this;
+    }
 }
