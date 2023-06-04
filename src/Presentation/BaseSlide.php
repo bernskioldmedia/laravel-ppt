@@ -225,12 +225,12 @@ abstract class BaseSlide
 
         $x = $position['x'] ?? match ($key) {
             self::EDGE_IMAGE_POSITION_TOP_LEFT, self::EDGE_IMAGE_POSITION_BOTTOM_LEFT => $this->horizontalPadding,
-            self::EDGE_IMAGE_POSITION_TOP_RIGHT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->width - $imageDimensions['width'] - $this->horizontalPadding,
+            self::EDGE_IMAGE_POSITION_TOP_RIGHT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->width - $imageDimensions['width'] - $this->horizontalPadding / 2,
         };
 
         $y = $position['y'] ?? match ($key) {
             self::EDGE_IMAGE_POSITION_TOP_LEFT, self::EDGE_IMAGE_POSITION_TOP_RIGHT => $this->verticalPadding,
-            self::EDGE_IMAGE_POSITION_BOTTOM_LEFT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->height - $imageDimensions['height'] - $this->verticalPadding,
+            self::EDGE_IMAGE_POSITION_BOTTOM_LEFT, self::EDGE_IMAGE_POSITION_BOTTOM_RIGHT => $this->presentation->height - $imageDimensions['height'] - $this->verticalPadding / 2,
         };
 
         $shape = $this->slide->createDrawingShape();
