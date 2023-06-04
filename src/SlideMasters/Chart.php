@@ -18,7 +18,6 @@ class Chart extends BaseSlide
         ChartShape::make($this, $this->chart->slide($this)->get())
             ->centered()
             ->backgroundColor($this->chartBackgroundColor)
-            ->y($this->verticalPadding)
             ->render();
     }
 }
