@@ -21,6 +21,13 @@ class SlideTheme
 
     public ?string $customMasterSlide = null;
 
+    public function __construct(?self $copyFrom = null)
+    {
+        if ($copyFrom) {
+            $this->copyFromTheme($copyFrom);
+        }
+    }
+
     public function customMasterSlide(string $className): self
     {
         $this->customMasterSlide = $className;
@@ -49,5 +56,18 @@ class SlideTheme
         if ($this->logo) {
             $slide->logo($this->logo, $this->logoDimensions, $this->logoPosition);
         }
+    }
+
+    public function copyFromTheme(self $theme): self
+    {
+        $this->backgroundColor = $theme->backgroundColor;
+        $this->backgroundImage = $theme->backgroundImage;
+        $this->chartBackgroundColor = $theme->chartBackgroundColor;
+        $this->textColor = $theme->textColor;
+        $this->logo = $theme->logo;
+        $this->logoDimensions = $theme->logoDimensions;
+        $this->logoPosition = $theme->logoPosition;
+
+        return $this;
     }
 }
