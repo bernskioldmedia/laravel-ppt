@@ -71,7 +71,7 @@ class Branding
                     'width' => 100,
                     'height' => 50,
                 ],
-                position: BaseSlide::EDGE_IMAGE_POSITION_TOP_LEFT,
+                position: BaseSlide::EDGE_IMAGE_POSITION_BOTTOM_LEFT,
             )
             ->backgroundColor('ffffffff')
             ->chartBackgroundColor('ffffffff')
