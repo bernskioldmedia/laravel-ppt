@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithEdgeImages
 {
-
     protected ?string $bottomLeftImagePath = null;
 
     protected ?string $bottomRightImagePath = null;
