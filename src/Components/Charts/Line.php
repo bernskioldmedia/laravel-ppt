@@ -12,9 +12,9 @@ use PhpOffice\PhpPresentation\Style\Fill;
 
 class Line extends ChartComponent
 {
-    use WithYAxis,
+    use WithLegend,
         WithXAxis,
-        WithLegend;
+        WithYAxis;
 
     public bool $smooth = false;
 

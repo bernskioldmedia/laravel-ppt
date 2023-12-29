@@ -19,11 +19,11 @@ use PhpOffice\PhpPresentation\Style\Fill;
  */
 class Shape extends Component
 {
-    use WithUrl,
+    use WithBackgroundColor,
+        WithBorder,
         WithRotation,
-        WithBackgroundColor,
         WithShape,
-        WithBorder;
+        WithUrl;
 
     protected string $type = AutoShape::TYPE_RECTANGLE;
 

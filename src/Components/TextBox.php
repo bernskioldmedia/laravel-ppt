@@ -19,13 +19,13 @@ use PhpOffice\PhpPresentation\Style\Font;
  */
 class TextBox extends Component
 {
-    use WithUrl,
-        WithFontSettings,
-        WithAlignment,
-        WithRotation,
+    use WithAlignment,
         WithBackgroundColor,
+        WithFontSettings,
+        WithParagraphStyle,
+        WithRotation,
         WithShape,
-        WithParagraphStyle;
+        WithUrl;
 
     public ?Run $textRun = null;
 

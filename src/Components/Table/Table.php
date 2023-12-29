@@ -13,8 +13,8 @@ use PhpOffice\PhpPresentation\Style\Font;
  */
 class Table extends Component
 {
-    use WithShape,
-        WithFontSettings;
+    use WithFontSettings,
+        WithShape;
 
     public function __construct(
         protected int $columns = 1,

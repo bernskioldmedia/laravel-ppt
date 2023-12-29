@@ -19,8 +19,8 @@ class SlideTheme
         WithBackgroundColor,
         WithBackgroundImage,
         WithChartBackground,
-        WithTextColor,
-        WithLogo;
+        WithLogo,
+        WithTextColor;
 
     /**
      * The class name of the custom master slide to use.
