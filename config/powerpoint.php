@@ -44,7 +44,8 @@ return [
     ],
 
     'paths' => [
-        'slideDecks' => app_path('SlideDecks'),
+        'slideDecks' => app_path('Presentations/SlideDecks'),
+        'slideMasters' => app_path('Presentations/SlideMasters'),
         'base' => resource_path('presentations'),
         'branding' => resource_path('presentations/branding'),
     ],

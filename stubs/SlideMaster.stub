@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Presentations\SlideDecks\SlideMasters;
+
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+
+class {{ $name }} extends BaseSlide
+{
+
+    public function __construct()
+    {
+        // ...
+    }
+
+    protected function render(): void
+    {
+        // ...
+    }
+}

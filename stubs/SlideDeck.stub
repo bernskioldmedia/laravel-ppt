@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SlideDecks\{{ $name }};
+namespace App\Presentations\SlideDecks\{{ $name }};
 
 use BernskioldMedia\LaravelPpt\Contracts\SlideDeck;
 use BernskioldMedia\LaravelPpt\Presentation\Presentation;
