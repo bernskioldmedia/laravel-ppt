@@ -82,6 +82,7 @@ class SlideTheme
         $this->logo = $theme->logo;
         $this->logoDimensions = $theme->logoDimensions;
         $this->logoPosition = $theme->logoPosition;
+        $this->customMasterSlide = $theme->customMasterSlide;
 
         return $this;
     }

@@ -4,7 +4,7 @@ namespace BernskioldMedia\LaravelPpt\Concerns\Slides;
 
 trait WithBackgroundImage
 {
-    protected ?string $backgroundImage = null;
+    public ?string $backgroundImage = null;
 
     public function backgroundImage(?string $path, bool $isFull = false): static
     {

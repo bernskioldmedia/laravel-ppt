@@ -48,3 +48,15 @@ it('can get a paragraph style', function () {
 
     expect($branding->paragraphStyle('slideTitle'))->toBeInstanceOf(ParagraphStyle::class);
 });
+
+it('can get a paragraph style value', function () {
+    $branding = Branding::make();
+
+    expect($branding->paragraphStyleValue('slideTitle', 'size'))->toBe(24);
+});
+
+it('can get a chart color by ID', function () {
+    $branding = Branding::make();
+
+    expect($branding->chartColor(0, false))->toBe('ff000000');
+});
