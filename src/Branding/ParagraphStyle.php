@@ -6,7 +6,6 @@ use BernskioldMedia\LaravelPpt\Components\Component;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use Illuminate\Contracts\Support\Arrayable;
-
 use function method_exists;
 
 /**

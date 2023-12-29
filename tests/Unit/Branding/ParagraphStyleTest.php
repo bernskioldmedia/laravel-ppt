@@ -9,7 +9,7 @@ it('can be created', function () {
         ->toHaveProperty('key', 'test');
 });
 
-it('can be converted to an array', function() {
+it('can be converted to an array', function () {
     $style = ParagraphStyle::make('test')
         ->size(12)
         ->color('red')

@@ -2,14 +2,13 @@
 
 namespace BernskioldMedia\LaravelPpt\Commands;
 
-use Illuminate\Console\Command;
-
 use function array_keys;
 use function array_map;
 use function array_values;
 use function config;
 use function file_get_contents;
 use function file_put_contents;
+use Illuminate\Console\Command;
 use function is_dir;
 use function mkdir;
 use function str;
