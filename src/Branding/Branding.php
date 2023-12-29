@@ -14,14 +14,32 @@ class Branding
 {
     use Makeable;
 
+    /**
+     * The creator name.
+     */
     protected string $creatorCompanyName;
 
+    /**
+     * The creator website URL.
+     */
     protected string $websiteUrl;
 
+    /**
+     * The default font used for slide components.
+     */
     protected string $baseFont;
 
+    /**
+     * A list of chart colors in ARGB format.
+     * Will be merged with the default colors, where the
+     * branding colors will take precedence.
+     */
     protected array $chartColors = [];
 
+    /**
+     * Default chart colors for all branding.
+     * This is loaded from the config file.
+     */
     protected array $defaultChartColors = [];
 
     public function __construct()
@@ -32,63 +50,91 @@ class Branding
         $this->defaultChartColors = config('powerpoint.baseBranding.chartColors', 'ff000000');
     }
 
+    /**
+     * The creator website URL.
+     */
     public function url(): string
     {
         return $this->websiteUrl;
     }
 
+    /**
+     * The creator name.
+     */
     public function creatorCompanyName(): string
     {
         return $this->creatorCompanyName;
     }
 
+    /**
+     * The default font used for slide components.
+     */
     public function baseFont(): string
     {
         return $this->baseFont;
     }
 
-    public function chartColors(): array
+    /**
+     * The path to the folder containing the branding assets.
+     */
+    public function assetFolderPath(): string
     {
-        return $this->chartColors;
+        return config('powerpoint.paths.branding') . '/' . $this->key();
     }
 
-    public function assetFolder(): string
-    {
-        return config('powerpoint.paths.branding').'/'.$this->key();
-    }
-
+    /**
+     * The key used to identify the branding.
+     */
     public function key(): string
     {
         return Str::kebab((new ReflectionClass($this))->getShortName());
     }
 
+    /**
+     * The default theme for all brandings.
+     */
     public function defaultTheme(): SlideTheme
     {
         return SlideTheme::make()
             ->logo(
-                path: $this->assetFolder().'/logo.png',
+                path: $this->assetFolderPath() . '/logo.png',
                 dimensions: [
                     'width' => 100,
                     'height' => 50,
                 ],
-                position: BaseSlide::EDGE_IMAGE_POSITION_BOTTOM_LEFT,
                 url: $this->url(),
             )
-            ->backgroundColor('ffffffff')
-            ->chartBackgroundColor('ffffffff')
-            ->textColor('ff000000');
+            ->backgroundColor(Color::COLOR_WHITE)
+            ->chartBackgroundColor(Color::COLOR_WHITE)
+            ->textColor(Color::COLOR_BLACK);
     }
 
+    /**
+     * The customized theme for the presentation.
+     * Override this method to customize the branding.
+     */
     public function slideTheme(?string $slideClass = null): SlideTheme
     {
         return $this->defaultTheme();
     }
 
+    /**
+     * Paragraph styles for this branding instance.
+     * Override this method to customize the paragraph styles.
+     * The styles returned here will be merged with the default styles.
+     *
+     * @return ParagraphStyle[]
+     */
     protected function paragraphStyles(): array
     {
         return [];
     }
 
+    /**
+     * Default paragraph styles for all brandings.
+     *
+     * @return ParagraphStyle[]
+     */
     protected function defaultParagraphStyles(): array
     {
         return [
@@ -116,10 +162,13 @@ class Branding
         ];
     }
 
+    /**
+     * Get a paragraph style by key.
+     */
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
         $style = collect($this->paragraphStyles())
-            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
             ->first();
 
         if ($style) {
@@ -127,24 +176,30 @@ class Branding
         }
 
         return collect($this->defaultParagraphStyles())
-            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
             ->first();
     }
 
-    public function paragraphStyleValue(string $styleKey, string $property): mixed
+    /**
+     * Get the value of a paragraph style's property.
+     */
+    public function paragraphStyleValue(string $styleKey, string $property, mixed $default = null): mixed
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (! $style) {
-            return null;
+        if (!$style) {
+            return $default;
         }
 
-        return $style->{$property} ?? null;
+        return $style->{$property} ?? $default;
     }
 
-    public function getChartColor(int $id, bool $asObject = true): string|Color
+    /**
+     * Get a chart color by its ID.
+     */
+    public function chartColor(int $id, bool $asObject = true): string|Color
     {
-        $argb = $this->getChartColors()[$id] ?? config('powerpoint.defaults.charts.seriesColor', 'ff000000');
+        $argb = $this->chartColors()[$id] ?? config('powerpoint.defaults.charts.seriesColor', 'ff000000');
 
         if ($asObject) {
             return new Color($argb);
@@ -153,7 +208,10 @@ class Branding
         return $argb;
     }
 
-    public function getChartColors(): array
+    /**
+     * Get all available chart colors for this branding.
+     */
+    public function chartColors(): array
     {
         return array_merge(
             $this->defaultChartColors,

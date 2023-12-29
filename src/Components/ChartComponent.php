@@ -86,7 +86,7 @@ abstract class ChartComponent extends Component
             return new Color($seriesData['color']);
         }
 
-        return $this->slide->presentation->branding->getChartColor($index);
+        return $this->slide->presentation->branding->chartColor($index);
     }
 
     protected function chartTypeSeriesData(Series $series, int $index, array $seriesData): void

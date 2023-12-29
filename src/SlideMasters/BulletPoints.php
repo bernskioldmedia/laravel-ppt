@@ -8,6 +8,9 @@ use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use PhpOffice\PhpPresentation\Style\Bullet;
 use PhpOffice\PhpPresentation\Style\Color;
 
+/**
+ * @method static static make(string $title, array $bulletPoints = [])
+ */
 class BulletPoints extends BaseSlide
 {
     use WithSlideTitle;

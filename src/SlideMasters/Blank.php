@@ -5,6 +5,9 @@ namespace BernskioldMedia\LaravelPpt\SlideMasters;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithCustomContents;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(callable $callback)
+ */
 class Blank extends BaseSlide
 {
     use WithCustomContents;

@@ -5,6 +5,9 @@ namespace BernskioldMedia\LaravelPpt\SlideMasters;
 use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(string $title, string $subtitle)
+ */
 class TitleSubtitle extends BaseSlide
 {
     public function __construct(

@@ -7,6 +7,8 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Contracts\CustomizesPowerpointBranding;
+use Illuminate\Contracts\Auth\Authenticatable;
+use PhpOffice\PhpPresentation\Exception\OutOfBoundsException;
 use function config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -15,24 +17,37 @@ use PhpOffice\PhpPresentation\DocumentLayout;
 use PhpOffice\PhpPresentation\IOFactory;
 use PhpOffice\PhpPresentation\PhpPresentation;
 
+/**
+ * @method static static make(string $title, ?int $width = null, ?int $height = null, ?string $branding = null)
+ */
 class Presentation
 {
     use Makeable,
         WithPadding,
         WithSize;
 
+    /**
+     * The document instance.
+     */
     public PhpPresentation $document;
 
-    protected ?Model $user = null;
+    /**
+     * The user that we are creating the presentation as.
+     */
+    protected ?Authenticatable $user = null;
 
+    /**
+     * The default branding class for the presentation
+     */
     public ?Branding $branding = null;
 
     public function __construct(
         protected string $title,
-        ?int $width = null,
-        ?int $height = null,
-        ?string $branding = null
-    ) {
+        ?int             $width = null,
+        ?int             $height = null,
+        ?string          $branding = null
+    )
+    {
         $this->user = auth()->user();
 
         // Set default sizes.
@@ -47,9 +62,16 @@ class Presentation
         $this->document = new PhpPresentation();
 
         // Remove the first slide which PHP-Presentation creates by default.
-        $this->document->removeSlideByIndex(0);
+        try {
+            $this->document->removeSlideByIndex(0);
+        } catch (OutOfBoundsException) {
+            // Do nothing.
+        }
 
-        // Set the default branding.
+        // Set the default branding in three priority levels:
+        // 1. Passed in as a parameter
+        // 2. The user's branding class if it exists
+        // 3. The default branding class from the config file
         if ($branding) {
             $this->branding($branding);
         } elseif ($this->user instanceof CustomizesPowerpointBranding && class_exists($this->user->powerpointBrandingClass())) {
@@ -59,6 +81,9 @@ class Presentation
         }
     }
 
+    /**
+     * Save everything to the document and create the presentation.
+     */
     public function create(): static
     {
 
@@ -72,16 +97,25 @@ class Presentation
         return $this;
     }
 
-    public function save(string $filename, ?string $disk = null): string
+    /**
+     * Save the presentation to a file on a disk.
+     */
+    public function save(string $filename, ?string $disk = null, bool $inRootFolder = false): string
     {
-        if (! $disk) {
+        if (!$disk) {
             $disk = config('powerpoint.output.disk', 'local');
         }
 
-        $directory = config('powerpoint.output.directory', 'ppt');
+        if (!$inRootFolder) {
+            $directory = config('powerpoint.output.directory', 'ppt');
+            Storage::disk($disk)->makeDirectory($directory);
 
-        Storage::disk($disk)->makeDirectory($directory);
-        $path = Storage::disk($disk)->path("$directory/$filename.pptx");
+            $path = "$directory/$filename.pptx";
+        } else {
+            $path = "$filename.pptx";
+        }
+
+        $path = Storage::disk($disk)->path($path);
 
         $writer = IOFactory::createWriter($this->document);
         $writer->save($path);
@@ -90,8 +124,9 @@ class Presentation
     }
 
     /**
-     * @param  array<BaseSlide>  $slides
-     * @return $this
+     * The slides to add to the presentation.
+     *
+     * @param array<BaseSlide> $slides
      */
     public function slides(array $slides = []): static
     {
@@ -102,20 +137,19 @@ class Presentation
         return $this;
     }
 
-    public function width(int $width): static
+    /**
+     * Add a single slide to the presentation.
+     */
+    public function addSlide(BaseSlide $slide): static
     {
-        $this->width = $width;
+        $slide->create($this);
 
         return $this;
     }
 
-    public function height(int $height): static
-    {
-        $this->height = $height;
-
-        return $this;
-    }
-
+    /**
+     * Force the use of a specific branding for this presentation.
+     */
     public function branding(string $brandingClass): static
     {
         $this->branding = $brandingClass::make();
@@ -123,13 +157,19 @@ class Presentation
         return $this;
     }
 
-    public function forUser(Model $user): static
+    /**
+     * Create the presentation as a specific user.
+     */
+    public function forUser(Authenticatable $user): static
     {
         $this->user = $user;
 
         return $this;
     }
 
+    /**
+     * Set various document properties to the document.
+     */
     protected function saveProperties(): void
     {
         $this->document
@@ -146,6 +186,5 @@ class Presentation
         if ($this->user && method_exists($this->user, 'powerpointCompanyName')) {
             $this->document->getDocumentProperties()->setCompany($this->user->powerpointCompanyName());
         }
-
     }
 }

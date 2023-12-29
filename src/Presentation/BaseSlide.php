@@ -19,8 +19,9 @@ use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
 use function tap;
+use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 
-abstract class BaseSlide
+abstract class BaseSlide implements SlideContract
 {
     use Makeable,
         WithPadding,
@@ -150,7 +151,7 @@ abstract class BaseSlide
             return;
         }
 
-        if (! $this->logo) {
+        if (!$this->logo) {
             return;
         }
 
@@ -180,7 +181,7 @@ abstract class BaseSlide
 
     protected function applyDataSource(): void
     {
-        if (! $this->showDataSource) {
+        if (!$this->showDataSource) {
             return;
         }
 
@@ -218,7 +219,7 @@ abstract class BaseSlide
         $position = $this->{"{$key}ImagePosition"};
         $url = $this->{"{$key}ImageUrl"};
 
-        if (! $imagePath) {
+        if (!$imagePath) {
             return;
         }
 

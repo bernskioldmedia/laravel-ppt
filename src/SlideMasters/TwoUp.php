@@ -7,6 +7,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\HasBoxes;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(string $title = '')
+ */
 class TwoUp extends BaseSlide
 {
     use HasBoxes,

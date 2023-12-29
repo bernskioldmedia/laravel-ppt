@@ -10,6 +10,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLogo;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static self make(?self $copyFrom = null)
+ */
 class SlideTheme
 {
     use Makeable,
@@ -19,6 +22,9 @@ class SlideTheme
         WithTextColor,
         WithLogo;
 
+    /**
+     * The class name of the custom master slide to use.
+     */
     public ?string $customMasterSlide = null;
 
     public function __construct(?self $copyFrom = null)
@@ -28,6 +34,9 @@ class SlideTheme
         }
     }
 
+    /**
+     * Use a custom master slide for this theme.
+     */
     public function customMasterSlide(string $className): self
     {
         $this->customMasterSlide = $className;
@@ -35,6 +44,9 @@ class SlideTheme
         return $this;
     }
 
+    /**
+     * Apply the theme to a slide.
+     */
     public function applyToSlide(BaseSlide $slide): void
     {
         if ($this->backgroundColor) {
@@ -58,6 +70,9 @@ class SlideTheme
         }
     }
 
+    /**
+     * Copy the settings from another SlideTheme instance.
+     */
     public function copyFromTheme(self $theme): self
     {
         $this->backgroundColor = $theme->backgroundColor;

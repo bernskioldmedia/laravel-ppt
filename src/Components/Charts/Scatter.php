@@ -25,7 +25,7 @@ class Scatter extends ChartComponent
     {
         $series->getFont()
             ->setName($this->slide->presentation->branding->baseFont())
-            ->setColor($this->slide->presentation->branding->getChartColor(0))
+            ->setColor($this->slide->presentation->branding->chartColor(0))
             ->setBold(true);
 
         $series->getMarker()->setSymbol(Marker::SYMBOL_CIRCLE);
@@ -38,8 +38,8 @@ class Scatter extends ChartComponent
         $series->getMarker()
             ->getFill()
             ->setFillType(Fill::FILL_SOLID)
-            ->setStartColor($this->slide->presentation->branding->getChartColor(0))
-            ->setEndColor($this->slide->presentation->branding->getChartColor(0));
+            ->setStartColor($this->slide->presentation->branding->chartColor(0))
+            ->setEndColor($this->slide->presentation->branding->chartColor(0));
     }
 
     public function render(): static

@@ -6,6 +6,9 @@ use BernskioldMedia\LaravelPpt\Components\ChartComponent;
 use BernskioldMedia\LaravelPpt\Components\ChartShape;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(ChartComponent $chart)
+ */
 class ChartSquare extends BaseSlide
 {
     public function __construct(

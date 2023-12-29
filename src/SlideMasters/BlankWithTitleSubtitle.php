@@ -8,6 +8,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use function config;
 
+/**
+ * @method static static make(string $title, string $subtitle, ?callable $callback = null)
+ */
 class BlankWithTitleSubtitle extends BaseSlide
 {
     use WithCustomContents,

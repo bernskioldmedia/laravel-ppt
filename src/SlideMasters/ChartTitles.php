@@ -7,6 +7,9 @@ use BernskioldMedia\LaravelPpt\Components\ChartShape;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(string $slideTitle, string $chartTitle, ChartComponent $chart)
+ */
 class ChartTitles extends BaseSlide
 {
     use WithSlideTitle;

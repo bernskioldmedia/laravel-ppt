@@ -2,10 +2,10 @@
 
 namespace App\SlideDecks\{{ $name }};
 
-use BernskioldMedia\LaravelPpt\Presentation\SlideDeck;
+use BernskioldMedia\LaravelPpt\Contracts\SlideDeck;
 use BernskioldMedia\LaravelPpt\Presentation\Presentation;
 
-class {{ $name }} extends SlideDeck
+class {{ $name }} implements SlideDeck
 {
 
     public function create(): Presentation

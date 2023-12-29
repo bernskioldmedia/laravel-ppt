@@ -8,6 +8,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use Illuminate\Contracts\Support\Arrayable;
 use function method_exists;
 
+/**
+ * @method static static make(string $key)
+ */
 class ParagraphStyle implements Arrayable
 {
     use Makeable,
@@ -35,6 +38,9 @@ class ParagraphStyle implements Arrayable
         ];
     }
 
+    /**
+     * Apply the style to a component.
+     */
     public function applyToComponent(Component $component): void
     {
         if ($this->size && method_exists($component, 'size')) {

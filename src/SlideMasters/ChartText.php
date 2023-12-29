@@ -7,6 +7,9 @@ use BernskioldMedia\LaravelPpt\Components\ChartShape;
 use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 
+/**
+ * @method static static make(string $text, ChartComponent $chart)
+ */
 class ChartText extends BaseSlide
 {
     public function __construct(
