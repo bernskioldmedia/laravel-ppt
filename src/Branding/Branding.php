@@ -2,12 +2,13 @@
 
 namespace BernskioldMedia\LaravelPpt\Branding;
 
-use function array_merge;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
-use function collect;
 use Illuminate\Support\Str;
 use PhpOffice\PhpPresentation\Style\Color;
 use ReflectionClass;
+
+use function array_merge;
+use function collect;
 
 class Branding
 {

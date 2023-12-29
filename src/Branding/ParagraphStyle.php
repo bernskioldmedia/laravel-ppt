@@ -7,6 +7,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Traits\Conditionable;
+
 use function method_exists;
 
 /**
@@ -14,8 +15,8 @@ use function method_exists;
  */
 class ParagraphStyle implements Arrayable
 {
-    use Makeable,
-        Conditionable,
+    use Conditionable,
+        Makeable,
         WithFontSettings;
 
     public function __construct(
