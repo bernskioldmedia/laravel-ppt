@@ -7,13 +7,12 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Contracts\CustomizesPowerpointBranding;
-use Illuminate\Contracts\Auth\Authenticatable;
-use PhpOffice\PhpPresentation\Exception\OutOfBoundsException;
 use function config;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Storage;
 use function method_exists;
 use PhpOffice\PhpPresentation\DocumentLayout;
+use PhpOffice\PhpPresentation\Exception\OutOfBoundsException;
 use PhpOffice\PhpPresentation\IOFactory;
 use PhpOffice\PhpPresentation\PhpPresentation;
 
@@ -43,11 +42,10 @@ class Presentation
 
     public function __construct(
         protected string $title,
-        ?int             $width = null,
-        ?int             $height = null,
-        ?string          $branding = null
-    )
-    {
+        ?int $width = null,
+        ?int $height = null,
+        ?string $branding = null
+    ) {
         $this->user = auth()->user();
 
         // Set default sizes.
@@ -102,11 +100,11 @@ class Presentation
      */
     public function save(string $filename, ?string $disk = null, bool $inRootFolder = false): string
     {
-        if (!$disk) {
+        if (! $disk) {
             $disk = config('powerpoint.output.disk', 'local');
         }
 
-        if (!$inRootFolder) {
+        if (! $inRootFolder) {
             $directory = config('powerpoint.output.directory', 'ppt');
             Storage::disk($disk)->makeDirectory($directory);
 
@@ -126,7 +124,7 @@ class Presentation
     /**
      * The slides to add to the presentation.
      *
-     * @param array<BaseSlide> $slides
+     * @param  array<BaseSlide>  $slides
      */
     public function slides(array $slides = []): static
     {

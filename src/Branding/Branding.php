@@ -4,7 +4,6 @@ namespace BernskioldMedia\LaravelPpt\Branding;
 
 use function array_merge;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
-use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use function collect;
 use Illuminate\Support\Str;
 use PhpOffice\PhpPresentation\Style\Color;
@@ -79,7 +78,7 @@ class Branding
      */
     public function assetFolderPath(): string
     {
-        return config('powerpoint.paths.branding') . '/' . $this->key();
+        return config('powerpoint.paths.branding').'/'.$this->key();
     }
 
     /**
@@ -97,7 +96,7 @@ class Branding
     {
         return SlideTheme::make()
             ->logo(
-                path: $this->assetFolderPath() . '/logo.png',
+                path: $this->assetFolderPath().'/logo.png',
                 dimensions: [
                     'width' => 100,
                     'height' => 50,
@@ -168,7 +167,7 @@ class Branding
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
         $style = collect($this->paragraphStyles())
-            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
             ->first();
 
         if ($style) {
@@ -176,7 +175,7 @@ class Branding
         }
 
         return collect($this->defaultParagraphStyles())
-            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
             ->first();
     }
 
@@ -187,7 +186,7 @@ class Branding
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (!$style) {
+        if (! $style) {
             return $default;
         }
 

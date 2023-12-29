@@ -13,13 +13,13 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLogo;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
+use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 use Closure;
 use function config;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
 use function tap;
-use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 
 abstract class BaseSlide implements SlideContract
 {
@@ -151,7 +151,7 @@ abstract class BaseSlide implements SlideContract
             return;
         }
 
-        if (!$this->logo) {
+        if (! $this->logo) {
             return;
         }
 
@@ -181,7 +181,7 @@ abstract class BaseSlide implements SlideContract
 
     protected function applyDataSource(): void
     {
-        if (!$this->showDataSource) {
+        if (! $this->showDataSource) {
             return;
         }
 
@@ -219,7 +219,7 @@ abstract class BaseSlide implements SlideContract
         $position = $this->{"{$key}ImagePosition"};
         $url = $this->{"{$key}ImageUrl"};
 
-        if (!$imagePath) {
+        if (! $imagePath) {
             return;
         }
 

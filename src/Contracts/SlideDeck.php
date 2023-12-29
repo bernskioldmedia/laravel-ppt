@@ -6,7 +6,5 @@ use BernskioldMedia\LaravelPpt\Presentation\Presentation;
 
 interface SlideDeck
 {
-
     public function create(): Presentation;
-
 }
