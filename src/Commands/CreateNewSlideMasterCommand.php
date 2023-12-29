@@ -10,7 +10,7 @@ use function mkdir;
 
 class CreateNewSlideMasterCommand extends Command
 {
-    public $signature = 'slide-decks:master {name}';
+    public $signature = 'make:slide-master {name}';
 
     public $description = 'Creates a new slide master.';
 

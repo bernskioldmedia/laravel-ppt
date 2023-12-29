@@ -16,7 +16,7 @@ use function str_replace;
 
 class CreateNewSlideDeckCommand extends Command
 {
-    public $signature = 'slide-decks:create {name}';
+    public $signature = 'make:slide-deck {name}';
 
     public $description = 'Creates a new slide deck class in the slide decks directory.';
 

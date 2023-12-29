@@ -78,7 +78,7 @@ class Branding
      */
     public function assetFolderPath(): string
     {
-        return config('powerpoint.paths.branding').'/'.$this->key();
+        return config('powerpoint.paths.branding') . '/' . $this->key();
     }
 
     /**
@@ -96,7 +96,7 @@ class Branding
     {
         return SlideTheme::make()
             ->logo(
-                path: $this->assetFolderPath().'/logo.png',
+                path: $this->assetFolderPath() . '/logo.png',
                 dimensions: [
                     'width' => 100,
                     'height' => 50,
@@ -109,8 +109,7 @@ class Branding
     }
 
     /**
-     * The customized theme for the presentation.
-     * Override this method to customize the branding.
+     * Customize the theme for a slide master.
      */
     public function slideTheme(?string $slideClass = null): SlideTheme
     {
@@ -167,7 +166,7 @@ class Branding
     public function paragraphStyle(string $key): ?ParagraphStyle
     {
         $style = collect($this->paragraphStyles())
-            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
             ->first();
 
         if ($style) {
@@ -175,7 +174,7 @@ class Branding
         }
 
         return collect($this->defaultParagraphStyles())
-            ->filter(fn (ParagraphStyle $style) => $style->key === $key)
+            ->filter(fn(ParagraphStyle $style) => $style->key === $key)
             ->first();
     }
 
@@ -186,7 +185,7 @@ class Branding
     {
         $style = $this->paragraphStyle($styleKey);
 
-        if (! $style) {
+        if (!$style) {
             return $default;
         }
 

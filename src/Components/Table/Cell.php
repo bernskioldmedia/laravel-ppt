@@ -23,7 +23,8 @@ class Cell
 
     public function __construct(
         public string $text = ''
-    ) {
+    )
+    {
     }
 
     public function spansColumns(int $colspan): self
