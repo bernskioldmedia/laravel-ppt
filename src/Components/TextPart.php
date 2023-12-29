@@ -5,11 +5,12 @@ namespace BernskioldMedia\LaravelPpt\Components;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
+use BernskioldMedia\LaravelPpt\Contracts\GeneratesTextRun;
 use PhpOffice\PhpPresentation\Shape\RichText\Run;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Font;
 
-class TextPart
+class TextPart implements GeneratesTextRun
 {
     use Makeable,
         WithFontSettings,

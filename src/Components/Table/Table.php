@@ -8,6 +8,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Font;
 
+/**
+ * @method static static make(int $columns = 1, array $rows = [])
+ */
 class Table extends Component
 {
     use WithShape,

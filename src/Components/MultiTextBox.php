@@ -8,7 +8,15 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithRotation;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
+use BernskioldMedia\LaravelPpt\Contracts\GeneratesTextRun;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+use PhpOffice\PhpPresentation\Shape\RichText;
 
+/**
+ * @property RichText $shape
+ *
+ * @method static self make(BaseSlide $slide, GeneratesTextRun[] $texts = [])
+ */
 class MultiTextBox extends Component
 {
     use WithUrl,
@@ -30,6 +38,11 @@ class MultiTextBox extends Component
         return $this;
     }
 
+    /**
+     * Add the texts.
+     *
+     * @param  GeneratesTextRun[]  $texts
+     */
     public function texts(array $texts): self
     {
         $this->texts = $texts;

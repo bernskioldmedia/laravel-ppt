@@ -3,9 +3,13 @@
 namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use PhpOffice\PhpPresentation\Shape\Drawing\File;
 use PhpOffice\PhpPresentation\Style\Border;
 
+/**
+ * @method static static make(BaseSlide $slide, string $path)
+ */
 class Image extends Component
 {
     use WithShape;

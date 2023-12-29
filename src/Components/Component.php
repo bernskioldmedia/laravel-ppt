@@ -6,10 +6,12 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPosition;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use Illuminate\Support\Traits\Conditionable;
+use Illuminate\Support\Traits\Tappable;
 
 abstract class Component
 {
     use Conditionable,
+        Tappable,
         WithPosition,
         WithSize;
 

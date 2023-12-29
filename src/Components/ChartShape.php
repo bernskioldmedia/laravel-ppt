@@ -4,6 +4,7 @@ namespace BernskioldMedia\LaravelPpt\Components;
 
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use PhpOffice\PhpPresentation\Shape\Chart\Gridlines;
 use PhpOffice\PhpPresentation\Shape\Chart\Legend;
 use PhpOffice\PhpPresentation\Shape\Chart\Type\Line;
@@ -13,13 +14,16 @@ use PhpOffice\PhpPresentation\Style\Border;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Fill;
 
+/**
+ * @method static static make(BaseSlide $slide, ChartComponent $chartComponent, ?string $axisColor = Color::COLOR_BLACK, ?string $title = '')
+ */
 class ChartShape extends Component
 {
     use WithShape,
         WithBackgroundColor;
 
     public function __construct(
-        protected ChartComponent $graphComponent,
+        protected ChartComponent $chartComponent,
         protected ?string $axisColor = Color::COLOR_BLACK,
         protected ?string $title = '',
     ) {
@@ -99,37 +103,37 @@ class ChartShape extends Component
         $this->shape->getLegend()->getBorder()->setLineStyle(Border::LINE_NONE);
 
         // Add the chart to the area.
-        $this->shape->getPlotArea()->setType($this->graphComponent->chart);
+        $this->shape->getPlotArea()->setType($this->chartComponent->chart);
 
         // Set Axis Labels
         $this->shape->getPlotArea()
             ->getAxisX()
-            ->setTitle(strtoupper($this->graphComponent->xAxisTitle))
+            ->setTitle(strtoupper($this->chartComponent->xAxisTitle))
             ->getFont()
             ->setCharacterSpacing(5);
 
         $this->shape->getPlotArea()
             ->getAxisY()
-            ->setTitle(strtoupper($this->graphComponent->yAxisTitle))
+            ->setTitle(strtoupper($this->chartComponent->yAxisTitle))
             ->getFont()
             ->setCharacterSpacing(5);
 
         // Maybe show axes?
-        $this->shape->getPlotArea()->getAxisX()->setIsVisible($this->graphComponent->showXAxis);
-        $this->shape->getPlotArea()->getAxisY()->setIsVisible($this->graphComponent->showYAxis);
+        $this->shape->getPlotArea()->getAxisX()->setIsVisible($this->chartComponent->showXAxis);
+        $this->shape->getPlotArea()->getAxisY()->setIsVisible($this->chartComponent->showYAxis);
 
         // Max-min
-        if (! $this->graphComponent->chart instanceof Line) {
-            if ($this->graphComponent->yAxisMax) {
-                $this->shape->getPlotArea()->getAxisY()->setMaxBounds($this->graphComponent->yAxisMax);
+        if (! $this->chartComponent->chart instanceof Line) {
+            if ($this->chartComponent->yAxisMax) {
+                $this->shape->getPlotArea()->getAxisY()->setMaxBounds($this->chartComponent->yAxisMax);
             }
 
-            if ($this->graphComponent->yAxisMin) {
-                $this->shape->getPlotArea()->getAxisY()->setMinBounds($this->graphComponent->yAxisMin);
+            if ($this->chartComponent->yAxisMin) {
+                $this->shape->getPlotArea()->getAxisY()->setMinBounds($this->chartComponent->yAxisMin);
             }
         }
 
-        if ($this->graphComponent->chart instanceof Radar) {
+        if ($this->chartComponent->chart instanceof Radar) {
             $oGridlines = new Gridlines();
             $oGridlines->getOutline()
                 ->setWidth(1)
@@ -146,7 +150,7 @@ class ChartShape extends Component
         }
 
         // Maybe show legend?
-        $this->shape->getLegend()->setVisible($this->graphComponent->showLegend);
+        $this->shape->getLegend()->setVisible($this->chartComponent->showLegend);
 
         return $this;
     }

@@ -6,6 +6,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 
+/**
+ * @method static static make(array $cells = [])
+ */
 class Row
 {
     use Makeable,

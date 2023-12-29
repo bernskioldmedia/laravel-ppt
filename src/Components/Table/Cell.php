@@ -6,6 +6,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
 
+/**
+ * @method static static make(string $text = '')
+ */
 class Cell
 {
     use Makeable,

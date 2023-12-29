@@ -2,6 +2,11 @@
 
 namespace BernskioldMedia\LaravelPpt\Components;
 
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+
+/**
+ * @method static static make(BaseSlide $slide, string $text)
+ */
 class BulletPointBox extends Component
 {
     protected string $paragraphStyle = 'bulletPoint';

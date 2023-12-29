@@ -7,10 +7,16 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBorder;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithRotation;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use PhpOffice\PhpPresentation\Shape\AutoShape;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Fill;
 
+/**
+ * @property AutoShape $shape
+ *
+ * @method static static make(BaseSlide $slide)
+ */
 class Shape extends Component
 {
     use WithUrl,
@@ -21,10 +27,6 @@ class Shape extends Component
 
     protected string $type = AutoShape::TYPE_RECTANGLE;
 
-    public function __construct()
-    {
-    }
-
     protected function initialize(): static
     {
         $this->shape = new AutoShape();
@@ -32,6 +34,10 @@ class Shape extends Component
         return $this;
     }
 
+    /**
+     * Set the type of the shape.
+     * See the AutoShape class for available types as constants.
+     */
     public function type(string $type): static
     {
         $this->type = $type;
@@ -39,11 +45,17 @@ class Shape extends Component
         return $this;
     }
 
+    /**
+     * Set the shape to be a circle.
+     */
     public function round(): static
     {
         return $this->type(AutoShape::TYPE_OVAL);
     }
 
+    /**
+     * Set the shape to be a rounded rectangle.
+     */
     public function rounded(): static
     {
         return $this->type(AutoShape::TYPE_ROUNDED_RECTANGLE);
