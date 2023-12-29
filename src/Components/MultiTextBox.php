@@ -19,12 +19,12 @@ use PhpOffice\PhpPresentation\Shape\RichText;
  */
 class MultiTextBox extends Component
 {
-    use WithUrl,
-        WithFontSettings,
-        WithAlignment,
-        WithRotation,
+    use WithAlignment,
         WithBackgroundColor,
-        WithShape;
+        WithFontSettings,
+        WithRotation,
+        WithShape,
+        WithUrl;
 
     public function __construct(
         protected ?array $texts = []

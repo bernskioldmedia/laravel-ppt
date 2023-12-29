@@ -11,9 +11,9 @@ use PhpOffice\PhpPresentation\Style\Color;
 
 class Radar extends ChartComponent
 {
-    use WithXAxis,
-        WithYAxis,
-        WithLegend;
+    use WithLegend,
+        WithXAxis,
+        WithYAxis;
 
     protected function initializeChart(): void
     {

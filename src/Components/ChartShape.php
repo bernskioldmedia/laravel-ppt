@@ -19,8 +19,8 @@ use PhpOffice\PhpPresentation\Style\Fill;
  */
 class ChartShape extends Component
 {
-    use WithShape,
-        WithBackgroundColor;
+    use WithBackgroundColor,
+        WithShape;
 
     public function __construct(
         protected ChartComponent $chartComponent,

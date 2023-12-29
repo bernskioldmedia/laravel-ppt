@@ -12,9 +12,9 @@ use PhpOffice\PhpPresentation\Style\Fill;
 
 class Scatter extends ChartComponent
 {
-    use WithYAxis,
+    use WithLegend,
         WithXAxis,
-        WithLegend;
+        WithYAxis;
 
     protected function initializeChart(): void
     {

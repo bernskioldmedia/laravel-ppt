@@ -6,6 +6,7 @@ use BernskioldMedia\LaravelPpt\Components\TextBox;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithCustomContents;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSlideTitle;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+
 use function config;
 
 /**

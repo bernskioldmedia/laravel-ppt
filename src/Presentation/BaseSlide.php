@@ -15,25 +15,26 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 use Closure;
-use function config;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
+
+use function config;
 use function tap;
 
 abstract class BaseSlide implements SlideContract
 {
-    use Makeable,
-        WithPadding,
+    use Conditionable,
+        Makeable,
         WithBackgroundColor,
         WithBackgroundImage,
         WithChartBackground,
         WithDataSource,
-        WithTextColor,
         WithEdgeImages,
         WithLogo,
+        WithPadding,
         WithSize,
-        Conditionable;
+        WithTextColor;
 
     public const EDGE_IMAGE_POSITION_TOP_LEFT = 'topLeft';
 
@@ -147,7 +148,7 @@ abstract class BaseSlide implements SlideContract
 
     protected function applyLogo(): void
     {
-        if (true === $this->withoutLogo) {
+        if ($this->withoutLogo === true) {
             return;
         }
 

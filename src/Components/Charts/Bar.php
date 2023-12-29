@@ -9,9 +9,9 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithYAxis;
 
 class Bar extends ChartComponent
 {
-    use WithYAxis,
+    use WithLegend,
         WithXAxis,
-        WithLegend;
+        WithYAxis;
 
     protected bool $stacked = false;
 
