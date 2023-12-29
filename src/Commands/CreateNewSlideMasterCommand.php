@@ -2,9 +2,10 @@
 
 namespace BernskioldMedia\LaravelPpt\Commands;
 
+use Illuminate\Console\Command;
+
 use function config;
 use function file_put_contents;
-use Illuminate\Console\Command;
 use function is_dir;
 use function mkdir;
 
