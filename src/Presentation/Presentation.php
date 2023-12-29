@@ -7,25 +7,26 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Contracts\CustomizesPowerpointBranding;
-use function config;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Traits\Conditionable;
 use Illuminate\Support\Traits\Tappable;
-use function method_exists;
 use PhpOffice\PhpPresentation\DocumentLayout;
 use PhpOffice\PhpPresentation\Exception\OutOfBoundsException;
 use PhpOffice\PhpPresentation\IOFactory;
 use PhpOffice\PhpPresentation\PhpPresentation;
+
+use function config;
+use function method_exists;
 
 /**
  * @method static static make(string $title, ?int $width = null, ?int $height = null, ?string $branding = null)
  */
 class Presentation
 {
-    use Makeable,
+    use Conditionable,
+        Makeable,
         Tappable,
-        Conditionable,
         WithPadding,
         WithSize;
 

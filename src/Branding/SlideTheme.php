@@ -16,8 +16,8 @@ use Illuminate\Support\Traits\Conditionable;
  */
 class SlideTheme
 {
-    use Makeable,
-        Conditionable,
+    use Conditionable,
+        Makeable,
         WithBackgroundColor,
         WithBackgroundImage,
         WithChartBackground,
