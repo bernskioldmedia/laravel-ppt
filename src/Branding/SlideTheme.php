@@ -9,6 +9,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithChartBackground;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLogo;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
+use Illuminate\Support\Traits\Conditionable;
 
 /**
  * @method static self make(?self $copyFrom = null)
@@ -16,6 +17,7 @@ use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 class SlideTheme
 {
     use Makeable,
+        Conditionable,
         WithBackgroundColor,
         WithBackgroundImage,
         WithChartBackground,

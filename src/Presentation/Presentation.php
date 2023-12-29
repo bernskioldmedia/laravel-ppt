@@ -7,6 +7,8 @@ use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithPadding;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Contracts\CustomizesPowerpointBranding;
+use Illuminate\Support\Traits\Conditionable;
+use Illuminate\Support\Traits\Tappable;
 use function config;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Storage;
@@ -22,6 +24,8 @@ use PhpOffice\PhpPresentation\PhpPresentation;
 class Presentation
 {
     use Makeable,
+        Tappable,
+        Conditionable,
         WithPadding,
         WithSize;
 

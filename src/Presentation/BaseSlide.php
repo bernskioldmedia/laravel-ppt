@@ -15,6 +15,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 use Closure;
+use Illuminate\Support\Traits\Tappable;
 use function config;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
@@ -24,6 +25,7 @@ use function tap;
 abstract class BaseSlide implements SlideContract
 {
     use Conditionable,
+        Tappable,
         Makeable,
         WithBackgroundColor,
         WithBackgroundImage,
