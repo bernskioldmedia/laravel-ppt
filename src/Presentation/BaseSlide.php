@@ -15,10 +15,11 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithSize;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithTextColor;
 use BernskioldMedia\LaravelPpt\Contracts\Slide as SlideContract;
 use Closure;
-use function config;
 use Illuminate\Support\Traits\Conditionable;
 use PhpOffice\PhpPresentation\Slide;
 use PhpOffice\PhpPresentation\Slide\Background\Color;
+
+use function config;
 use function tap;
 
 abstract class BaseSlide implements SlideContract
