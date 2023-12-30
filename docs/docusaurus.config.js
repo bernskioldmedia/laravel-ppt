@@ -10,25 +10,15 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
     title: 'Laravel PPT',
     tagline: 'Create rich PowerPoint-presentations with Laravel.',
-    favicon: 'img/favicon.ico',
-
-    // Set the production url of your site here
+    favicon: 'img/favicon.png',
     url: 'https://laravel-ppt.bmedia.io',
-    // Set the /<baseUrl>/ pathname under which your site is served
-    // For GitHub pages deployment, it is often '/<projectName>/'
     baseUrl: '/',
-
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'bernskioldmedia', // Usually your GitHub org/user name.
-    projectName: 'laravel-ppt', // Usually your repo name.
+    organizationName: 'bernskioldmedia',
+    projectName: 'laravel-ppt',
 
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
 
-    // Even if you don't use internationalization, you can use this field to set
-    // useful metadata like html lang. For example, if your site is Chinese, you
-    // may want to replace "en" with "zh-Hans".
     i18n: {
         defaultLocale: 'en',
         locales: ['en'],
