@@ -8,10 +8,11 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: docs
     steps:
       - uses: actions/checkout@v2
-      - name: Go into docs
-        run: cd docs
       - uses: actions/setup-node@v3
         with:
           node-version: 18.x
