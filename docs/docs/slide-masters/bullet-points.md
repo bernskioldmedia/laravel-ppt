@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Bullet Points
 
 The bullet point slide master is used for a slide that contains a title and a list of bullet points.

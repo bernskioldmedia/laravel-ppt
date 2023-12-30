@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Blank Slides
 
 The blank slide is a blank canvas for you to customize completely through a callback.
@@ -19,7 +23,7 @@ Another common use case is to have a blank slide but with a title. This is suppo
 ```php
 use BernskioldMedia\LaravelPpt\SlideMasters\BlankWithTitle;
 
-BlankWithTitle::make('My Title', function(Blank $slide) {
+BlankWithTitle::make('My Title', function(BlankWithTitle $slide) {
     // Add slide components here...
 });
 ```
@@ -37,7 +41,7 @@ use BernskioldMedia\LaravelPpt\SlideMasters\BlankWithTitleSubtitle;
 BlankWithTitleSubtitle::make(
     title: 'My Title',
     subtitle: 'This is a subtitle',
-    callback: function(Blank $slide) {
+    callback: function(BlankWithTitleSubtitle $slide) {
         // Add slide components here...
     }
 );
