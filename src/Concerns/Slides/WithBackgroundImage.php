@@ -6,7 +6,7 @@ trait WithBackgroundImage
 {
     public ?string $backgroundImage = null;
 
-    public function backgroundImage(?string $path, bool $isFull = false): static
+    public function backgroundImage(?string $path, bool $isFullPath = false): static
     {
         if ($path === null) {
             $this->backgroundImage = null;
@@ -14,7 +14,7 @@ trait WithBackgroundImage
             return $this;
         }
 
-        if (! $isFull) {
+        if (! $isFullPath) {
             $path = config('powerpoint.paths.base').'/'.$path;
         }
 

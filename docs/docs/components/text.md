@@ -23,6 +23,14 @@ Blank::make(function (Blank $slide) {
 });
 ```
 
+When creating a text box you can also pass a paragraph style to be used for formatting:
+
+```php
+TextBox::make($slide, 'This is a text box')
+    ->paragraphStyle('heading-1')
+    ->render();
+```
+
 ## Adding a multi-text box
 
 The multi-text box supports multiple instances of texts. Each text should be an instance of `TextPart`.
@@ -38,3 +46,73 @@ Blank::make(function (Blank $slide) {
     ])->render();
 });
 ```
+
+## Customizing text boxes
+
+Both text boxes and multi-text boxes support the following methods:
+
+### Alignment
+
+- `alignLeft()`: Align the text horizontally to the left.
+- `alignCenter()`: Align the text horizontally to the center.
+- `alignRight()`: Align the text horizontally to the right.
+- `alignTop()`: Align the text vertically to the top.
+- `alignMiddle()`: Align the text vertically to the middle.
+- `alignBottom()`: Align the text vertically to the bottom.
+
+### Spacing
+
+- `margin(float $top, float? $right = null, float? $bottom = null, float? $left = null)`: Set the margin (in pixels).
+- `marginTop(float $margin)`: Set the top margin (in pixels).
+- `marginRight(float $margin)`: Set the right margin (in pixels).
+- `marginBottom(float $margin)`: Set the bottom margin (in pixels).
+- `marginLeft(float $margin)`: Set the left margin (in pixels).
+
+### Background
+
+- `backgroundColor(string $color)`: Set the background color (in ARGB format).
+
+### Text
+
+- `size(int $size)`: Set the font size (in pixels).
+- `bold(bool $bold = true)`: Set the font weight to bold.
+- `color(string $color)`: Set the font color (in ARGB format).
+- `uppercase(bool $uppercase = true)`: Set the text to uppercase.
+- `underlined(bool $underlined = true)`: Set the text to underlined.
+- `letterSpacing(int $spacing)`: Set the letter spacing (in pixels).
+- `font(string $font)`: Set the font family.
+- `lineHeight(int $height)`: Set the line height (in pixels).
+
+### Rotation
+
+- `rotate(int $degrees)`: Rotate the text box (in degrees).
+
+### Links
+
+- `url(string $url)` - Set a URL to open when the shape is clicked.
+- `linkToSlide(int $slideNumber)` - Set a slide number to link to when the shape is clicked.
+- `useTextColorForLink(bool $use)` - Use the text color for the link instead of the default hyperlink color.
+
+## Text Parts
+
+Text parts are used in the multi-text box. They can be used to set the text, as well some formatting options.
+
+```php
+TextPart::make('This is the first paragraph')
+    ->bold()
+    ->size(20);
+```
+
+The following methods are available on text parts:
+
+- `size(int $size)`: Set the font size (in pixels).
+- `bold(bool $bold = true)`: Set the font weight to bold.
+- `color(string $color)`: Set the font color (in ARGB format).
+- `uppercase(bool $uppercase = true)`: Set the text to uppercase.
+- `underlined(bool $underlined = true)`: Set the text to underlined.
+- `letterSpacing(int $spacing)`: Set the letter spacing (in pixels).
+- `font(string $font)`: Set the font family.
+- `lineHeight(int $height)`: Set the line height (in pixels).
+- `url(string $url)` - Set a URL to open when the shape is clicked.
+- `linkToSlide(int $slideNumber)` - Set a slide number to link to when the shape is clicked.
+- `useTextColorForLink(bool $use)` - Use the text color for the link instead of the default hyperlink color.

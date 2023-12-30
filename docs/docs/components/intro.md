@@ -8,6 +8,22 @@ Components are the building blocks of your slides. They are elements that make i
 
 The package ships with several components that you can use out of the box. You can also create your own components.
 
+When using components there are two important things to remember:
+
+- The slide object is always passed as the first argument to the make method.
+- You should always call the `render()` method at the end of your definition to render the component to the slide.
+
+The following example adds a simple text box to the slide:
+
+```php
+use BernskioldMedia\LaravelPpt\Components\TextBox;
+use BernskioldMedia\LaravelPpt\SlideMasters\Blank;
+
+Blank::make(function (Blank $slide) {
+    TextBox::make($slide, 'This is a text box')->render();
+});
+```
+
 ## Default customization methods
 
 All components have the following methods for customizing their appearance:
