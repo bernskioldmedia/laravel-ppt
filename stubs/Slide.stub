@@ -9,7 +9,7 @@ use BernskioldMedia\LaravelPpt\SlideMasters\Blank;
 class {{ $name }} extends PresentationSlide
 {
 
-    public function __invoke(): BaseSlide
+    public function __invoke(...$args): BaseSlide
     {
         return Blank::make();
     }
