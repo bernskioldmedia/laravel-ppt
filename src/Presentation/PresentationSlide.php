@@ -11,9 +11,5 @@ abstract class PresentationSlide
 {
     use Makeable;
 
-    public function __construct()
-    {
-    }
-
     abstract public function __invoke(): BaseSlide;
 }
