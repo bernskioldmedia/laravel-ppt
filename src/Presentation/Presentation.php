@@ -82,6 +82,13 @@ class Presentation
         } else {
             $this->branding(config('powerpoint.defaults.presentation.branding', Branding::class));
         }
+
+        $this->boot();
+    }
+
+    protected function boot(): void
+    {
+        // Override in child classes.
     }
 
     /**
