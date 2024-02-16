@@ -5,11 +5,15 @@ namespace BernskioldMedia\LaravelPpt\Presentation;
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
 
 /**
- * @method static BaseSlide make(array $data)
+ * @method static BaseSlide make()
  */
 abstract class PresentationSlide
 {
     use Makeable;
 
-    abstract public function __invoke(array $data): BaseSlide;
+    public function __construct()
+    {
+    }
+
+    abstract public function __invoke(): BaseSlide;
 }
