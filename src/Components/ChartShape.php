@@ -32,7 +32,10 @@ class ChartShape extends Component
 
     protected function initialize(): static
     {
-        $this->shape = $this->slide->raw()->createChartShape();
+        $this->shape = $this->slide
+            ->raw()
+            ->createChartShape()
+            ->setName(str()->random());
 
         return $this;
     }

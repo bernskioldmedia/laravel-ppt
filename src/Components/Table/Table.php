@@ -18,14 +18,18 @@ class Table extends Component
         WithShape;
 
     public function __construct(
-        protected int $columns = 1,
+        protected int   $columns = 1,
         protected array $rows = [],
-    ) {
+    )
+    {
     }
 
     protected function initialize(): static
     {
-        $this->shape = $this->slide->raw()->createTableShape($this->columns);
+        $this->shape = $this->slide
+            ->raw()
+            ->createTableShape($this->columns)
+            ->setName(str()->random());
 
         return $this;
     }
