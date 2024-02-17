@@ -6,7 +6,7 @@ trait WithChartBackground
 {
     public ?string $chartBackgroundColor = null;
 
-    public function chartBackgroundColor(string $argb): static
+    public function chartBackgroundColor(?string $argb): static
     {
         $this->chartBackgroundColor = $argb;
 

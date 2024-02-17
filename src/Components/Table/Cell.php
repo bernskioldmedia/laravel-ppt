@@ -3,6 +3,9 @@
 namespace BernskioldMedia\LaravelPpt\Components\Table;
 
 use BernskioldMedia\LaravelPpt\Concerns\Makeable;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithAlignment;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBackgroundColor;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithBorders;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
 
@@ -13,6 +16,9 @@ class Cell
 {
     use Makeable,
         WithFontSettings,
+        WithAlignment,
+        WithBackgroundColor,
+        WithBorders,
         WithUrl;
 
     public int $colspan = 0;
