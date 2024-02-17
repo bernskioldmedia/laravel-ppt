@@ -18,10 +18,9 @@ class Table extends Component
         WithShape;
 
     public function __construct(
-        protected int   $columns = 1,
+        protected int $columns = 1,
         protected array $rows = [],
-    )
-    {
+    ) {
     }
 
     protected function initialize(): static
