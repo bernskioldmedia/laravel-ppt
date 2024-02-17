@@ -38,7 +38,7 @@ trait WithEdgeImages
 
     public function bottomLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
-        if($this->bottomLeftImagePath) {
+        if ($this->bottomLeftImagePath) {
             return $this;
         }
 
@@ -62,7 +62,7 @@ trait WithEdgeImages
 
     public function bottomRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
-        if($this->bottomRightImagePath) {
+        if ($this->bottomRightImagePath) {
             return $this;
         }
 
@@ -86,7 +86,7 @@ trait WithEdgeImages
 
     public function topLeftImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
-        if($this->topLeftImagePath) {
+        if ($this->topLeftImagePath) {
             return $this;
         }
 
@@ -110,7 +110,7 @@ trait WithEdgeImages
 
     public function topRightImage(string $path, int $width, int $height, ?int $x = null, ?int $y = null, ?string $url = null): self
     {
-        if($this->topRightImagePath) {
+        if ($this->topRightImagePath) {
             return $this;
         }
 
