@@ -15,10 +15,10 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithUrl;
 class Cell
 {
     use Makeable,
-        WithFontSettings,
         WithAlignment,
         WithBackgroundColor,
         WithBorders,
+        WithFontSettings,
         WithUrl;
 
     public int $colspan = 0;
