@@ -22,7 +22,7 @@ abstract class ChartComponent extends Component
     }
 
     /**
-     * @param array $data
+     * @param  array  $data
      */
     public static function make(...$args): static
     {
