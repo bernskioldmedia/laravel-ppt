@@ -5,11 +5,12 @@ namespace BernskioldMedia\LaravelPpt\Components\Table;
 use BernskioldMedia\LaravelPpt\Components\Component;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithFontSettings;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithShape;
+use BernskioldMedia\LaravelPpt\Presentation\BaseSlide;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Font;
 
 /**
- * @method static static make(int $columns = 1, array $rows = [])
+ * @method static static make(BaseSlide $slide, int $columns = 1, array $rows = [])
  */
 class Table extends Component
 {

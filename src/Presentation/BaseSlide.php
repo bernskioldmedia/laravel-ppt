@@ -241,7 +241,8 @@ abstract class BaseSlide implements SlideContract
         $shape->setPath($imagePath)
             ->setWidthAndHeight($imageDimensions['width'], $imageDimensions['height'])
             ->setOffsetX($x)
-            ->setOffsetY($y);
+            ->setOffsetY($y)
+            ->setName(str()->random());
 
         if ($url) {
             $shape->getHyperlink()->setUrl($url);

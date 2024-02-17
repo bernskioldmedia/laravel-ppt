@@ -51,15 +51,15 @@ class SlideTheme
      */
     public function applyToSlide(BaseSlide $slide): void
     {
-        if ($this->backgroundColor && ! $slide->backgroundColor) {
+        if ($this->backgroundColor && $slide->backgroundColor === null) {
             $slide->backgroundColor($this->backgroundColor);
         }
 
-        if ($this->backgroundImage && ! $slide->backgroundImage) {
+        if ($this->backgroundImage && $slide->backgroundImage === null) {
             $slide->backgroundImage($this->backgroundImage, true);
         }
 
-        if ($this->chartBackgroundColor && ! $slide->chartBackgroundColor) {
+        if ($this->chartBackgroundColor && $slide->chartBackgroundColor === null) {
             $slide->chartBackgroundColor($this->chartBackgroundColor);
         }
 
