@@ -4,6 +4,7 @@ namespace BernskioldMedia\LaravelPpt\Components\Charts;
 
 use BernskioldMedia\LaravelPpt\Components\ChartComponent;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithLegend;
+use BernskioldMedia\LaravelPpt\Concerns\Slides\WithMarkerControls;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithXAxis;
 use BernskioldMedia\LaravelPpt\Concerns\Slides\WithYAxis;
 use PhpOffice\PhpPresentation\Shape\Chart\Marker;
@@ -13,6 +14,7 @@ use PhpOffice\PhpPresentation\Style\Fill;
 class Line extends ChartComponent
 {
     use WithLegend,
+        WithMarkerControls,
         WithXAxis,
         WithYAxis;
 
@@ -33,19 +35,23 @@ class Line extends ChartComponent
             ->setColor($seriesColor)
             ->setBold(true);
 
-        $series->getMarker()->setSymbol(Marker::SYMBOL_CIRCLE);
-        $series->getMarker()->setSize(10);
+        if ($this->showMarker) {
+            $series->getMarker()->setSymbol(Marker::SYMBOL_CIRCLE);
+            $series->getMarker()->setSize(10);
 
-        $series->getMarker()
-            ->getBorder()
-            ->getColor()
-            ->setARGB('ffffffff');
+            $series->getMarker()
+                ->getBorder()
+                ->getColor()
+                ->setARGB('ffffffff');
 
-        $series->getMarker()
-            ->getFill()
-            ->setFillType(Fill::FILL_SOLID)
-            ->setStartColor($seriesColor)
-            ->setEndColor($seriesColor);
+            $series->getMarker()
+                ->getFill()
+                ->setFillType(Fill::FILL_SOLID)
+                ->setStartColor($seriesColor)
+                ->setEndColor($seriesColor);
+        } else {
+            $series->getMarker()->setSize(0);
+        }
     }
 
     public function smooth(bool $smooth = true): self
