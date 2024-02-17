@@ -141,7 +141,11 @@ class Presentation
     public function slides(array $slides = []): static
     {
         foreach ($slides as $slide) {
-            $slide->create($this);
+            if ($slide instanceof PresentationSlide) {
+                $slide()->create($this);
+            } else {
+                $slide->create($this);
+            }
         }
 
         return $this;
