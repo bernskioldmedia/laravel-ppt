@@ -10,6 +10,7 @@ use BernskioldMedia\LaravelPpt\Concerns\Slides\WithYAxis;
 use PhpOffice\PhpPresentation\Shape\Chart\Marker;
 use PhpOffice\PhpPresentation\Shape\Chart\Series;
 use PhpOffice\PhpPresentation\Style\Fill;
+use PhpOffice\PhpPresentation\Style\Outline;
 
 class Line extends ChartComponent
 {
@@ -35,9 +36,18 @@ class Line extends ChartComponent
             ->setColor($seriesColor)
             ->setBold(true);
 
+        $outline = (new Outline());
+        $outline->setWidth(2);
+        $outline->getFill()
+            ->setStartColor($seriesColor)
+            ->setFillType(Fill::FILL_SOLID)
+            ->setEndColor($seriesColor);
+
+        $series->setOutline($outline);
+
         if ($this->showMarker) {
             $series->getMarker()->setSymbol(Marker::SYMBOL_CIRCLE);
-            $series->getMarker()->setSize(10);
+            $series->getMarker()->setSize(7);
 
             $series->getMarker()
                 ->getBorder()
