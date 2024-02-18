@@ -62,7 +62,7 @@ class ParagraphStyle implements Arrayable
             $component->font($this->font);
         }
 
-        if ($this->bold && method_exists($component, 'bold') && $component->bold === null) {
+        if ($this->bold && method_exists($component, 'bold')) {
             $component->bold($this->bold);
         }
 
@@ -74,7 +74,7 @@ class ParagraphStyle implements Arrayable
             $component->lineHeight($this->lineHeight);
         }
 
-        if ($this->uppercase && method_exists($component, 'uppercase') && $component->uppercase === null) {
+        if ($this->uppercase && method_exists($component, 'uppercase')) {
             $component->uppercase($this->uppercase);
         }
     }
