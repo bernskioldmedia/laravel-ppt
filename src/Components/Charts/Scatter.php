@@ -18,7 +18,7 @@ class Scatter extends ChartComponent
 
     protected function initializeChart(): void
     {
-        $this->chart = new \PhpOffice\PhpPresentation\Shape\Chart\Type\Scatter();
+        $this->chart = new \PhpOffice\PhpPresentation\Shape\Chart\Type\Scatter;
     }
 
     protected function chartTypeSeriesData(Series $series, int $index, array $seriesData): void

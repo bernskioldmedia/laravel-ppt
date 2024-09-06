@@ -62,7 +62,7 @@ class Presentation
         $this->horizontalPadding = config('powerpoint.defaults.presentation.horizontalPadding', 0);
 
         // Create the presentation instance.
-        $this->document = new PhpPresentation();
+        $this->document = new PhpPresentation;
 
         // Remove the first slide which PHP-Presentation creates by default.
         try {

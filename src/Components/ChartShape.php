@@ -137,7 +137,7 @@ class ChartShape extends Component
         }
 
         if ($this->chartComponent->chart instanceof Radar) {
-            $oGridlines = new Gridlines();
+            $oGridlines = new Gridlines;
             $oGridlines->getOutline()
                 ->setWidth(1)
                 ->getFill()

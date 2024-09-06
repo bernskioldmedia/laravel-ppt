@@ -24,8 +24,7 @@ class BulletPointBox extends Component
 
     public function __construct(
         protected array $bulletPoints = [],
-    ) {
-    }
+    ) {}
 
     public function bullet(string $text): self
     {
