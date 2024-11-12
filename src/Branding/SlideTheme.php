@@ -63,6 +63,10 @@ class SlideTheme
             $slide->chartBackgroundColor($this->chartBackgroundColor);
         }
 
+        if($this->chartAxisColor && $slide->chartAxisColor === null) {
+            $slide->chartAxisColor($this->chartAxisColor);
+        }
+
         if ($this->textColor && ! $slide->textColor) {
             $slide->textColor($this->textColor);
         }
