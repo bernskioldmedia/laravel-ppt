@@ -14,10 +14,10 @@ use PhpOffice\PhpPresentation\Style\Alignment;
 use PhpOffice\PhpPresentation\Style\Border;
 use PhpOffice\PhpPresentation\Style\Color;
 use PhpOffice\PhpPresentation\Style\Fill;
-use PhpOffice\PhpSpreadsheet\Chart\PlotArea;
 
 /**
  * @property Chart $shape
+ *
  * @method static static make(BaseSlide $slide, ChartComponent $chartComponent, ?string $axisColor = Color::COLOR_BLACK, ?string $title = '')
  */
 class ChartShape extends Component
