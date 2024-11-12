@@ -84,6 +84,7 @@ class SlideTheme
         $this->backgroundColor = $theme->backgroundColor;
         $this->backgroundImage = $theme->backgroundImage;
         $this->chartBackgroundColor = $theme->chartBackgroundColor;
+        $this->chartAxisColor = $theme->chartAxisColor;
         $this->textColor = $theme->textColor;
         $this->logo = $theme->logo;
         $this->logoDimensions = $theme->logoDimensions;
