@@ -31,11 +31,6 @@ class Line extends ChartComponent
     {
         $seriesColor = $this->getSeriesColorFromData($seriesData, $index);
 
-        $series->getFont()
-            ->setName($this->slide->presentation->branding->baseFont())
-            ->setColor($seriesColor)
-            ->setBold(true);
-
         $outline = (new Outline);
         $outline->setWidth(2);
         $outline->getFill()
@@ -51,8 +46,7 @@ class Line extends ChartComponent
 
             $series->getMarker()
                 ->getBorder()
-                ->getColor()
-                ->setARGB('ffffffff');
+                ->setLineWidth(0);
 
             $series->getMarker()
                 ->getFill()
