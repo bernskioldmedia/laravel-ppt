@@ -75,7 +75,7 @@ class ChartShape extends Component
             $this->backgroundColor = $this->slide->chartBackgroundColor;
         }
 
-        if($this->slide->chartAxisColor) {
+        if ($this->slide->chartAxisColor) {
             $this->axisColor = $this->slide->chartAxisColor;
         }
 
