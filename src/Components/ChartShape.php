@@ -75,6 +75,10 @@ class ChartShape extends Component
             $this->backgroundColor = $this->slide->chartBackgroundColor;
         }
 
+        if($this->slide->chartAxisColor) {
+            $this->axisColor = $this->slide->chartAxisColor;
+        }
+
         if (! empty($this->backgroundColor)) {
             $this->shape->getFill()
                 ->setFillType(Fill::FILL_SOLID)
