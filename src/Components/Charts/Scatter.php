@@ -24,9 +24,15 @@ class Scatter extends ChartComponent
 
     protected function chartTypeSeriesData(Series $series, int $index, array $seriesData): void
     {
+        if ($this->slide->chartAxisColor) {
+            $axisColor = new Color($this->slide->chartAxisColor);
+        } else {
+            $axisColor = $this->slide->presentation->branding->chartColor($index);
+        }
+
         $series->getFont()
             ->setName($this->slide->presentation->branding->baseFont())
-            ->setColor(new Color($this->slide->chartAxisColor))
+            ->setColor($axisColor)
             ->setBold(true);
 
         $series->getMarker()->setSymbol(Marker::SYMBOL_CIRCLE);
